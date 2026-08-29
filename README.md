@@ -1,111 +1,85 @@
-# Web de LinceBlob
+<p align="center">
+  <img src="assets/img/icono-512.png" width="140" alt="LinceBlob">
+</p>
 
-Página pública del proyecto: descargas, documentación y textos legales.
-Se publica con GitHub Pages (Jekyll) desde este mismo repositorio.
+<h1 align="center">LinceBlob</h1>
 
-**Aquí no va el código de la aplicación.** LinceBlob es software propietario y
-solo se distribuyen los binarios, que viajan como adjuntos de las *releases*.
+<p align="center">
+  Envía archivos de un dispositivo a otro sin que pasen por la nube de nadie.
+</p>
 
-## Publicarla
+<p align="center">
+  <a href="https://lince.mibaltoalex.com/descargar/">Descargar</a> ·
+  <a href="https://lince.mibaltoalex.com/documentacion/">Documentación</a> ·
+  <a href="https://lince.mibaltoalex.com/">Web</a>
+</p>
 
-1. Copia el contenido de esta carpeta a la raíz del repositorio
-   `MiBaLToALeX/LinceBlob` y haz *push* a `main`.
-2. En GitHub: **Settings → Pages → Source: Deploy from a branch**, rama `main`,
-   carpeta `/ (root)`.
-3. En **Settings → Pages → Custom domain**, escribe `lince.mibaltoalex.com`
-   y marca **Enforce HTTPS** cuando GitHub lo permita (tarda unos minutos en
-   emitir el certificado).
+---
 
-### DNS
+Cuando tienes que pasar un archivo grande a otro ordenador, lo normal es
+subirlo a algún servicio, esperar, mandar el enlace y esperar otra vez
+mientras el otro lo baja. El archivo hace dos viajes y se queda guardado en un
+sitio que no controlas.
 
-En el proveedor del dominio, un registro `CNAME`:
+LinceBlob hace el viaje directo. Tu equipo se conecta con el otro y el archivo
+pasa de uno a otro, cifrado, sin copia intermedia. No hay cuentas, no hay
+registro y no hay límite de tamaño.
 
-```
-lince   CNAME   mibaltoalex.github.io.
-```
+## Cómo funciona
 
-El fichero `CNAME` de la raíz de este repositorio ya lleva el dominio dentro;
-no lo borres, GitHub lo lee en cada publicación.
+Quien envía obtiene un código. Quien recibe lo pega. Ya está.
 
-En `_config.yml`, `baseurl` va **vacío** justamente por esto. Si algún día
-vuelves a publicar sin dominio propio, hay que devolverle el valor
-`"/LinceBlob"` o la web saldrá sin estilos.
+Ese código es la llave del contenido, así que conviene tratarlo como una
+contraseña. Si los dos dispositivos están en la misma red, ni eso hace falta:
+aparece el nombre del otro equipo, lo tocas y allí sale el aviso.
 
-## Cómo se actualizan las descargas
+## Qué trae
 
-**No hay que tocar la web al sacar una versión.** La página de descargas lee la
-última *release* de la API de GitHub y agrupa los ficheros adjuntos por
-plataforma según su nombre:
+- **Cifrado de extremo a extremo.** El contenido se cifra en tu dispositivo y se
+  descifra en el de destino. Nadie por el camino puede leerlo.
+- **Conexión directa.** Atraviesa routers y cortafuegos para unir los dos
+  equipos. Cuando la red no lo permite, se pasa por un relé que reenvía datos
+  ya cifrados y tampoco puede abrirlos.
+- **Dispositivos cercanos.** En la misma red, enviar es elegir un nombre de
+  una lista.
+- **Código QR.** Del ordenador al móvil sin teclear nada: enseñas el QR, lo
+  escaneas y la descarga arranca sola.
+- **Reenvío de puertos.** Publica un servicio de tu equipo y ábrelo desde
+  otro sitio como si estuvieras en su misma red.
+- **Cifrado post-cuántico.** Para lo que tenga que seguir siendo secreto
+  dentro de muchos años.
+- **Cinco idiomas**: español, inglés, portugués, francés e italiano.
 
-| Termina en | Se muestra bajo |
+## Dónde funciona
+
+| Sistema | Requisitos |
 |---|---|
-| `.exe`, `.msi` | Windows |
-| `.apk` | Android |
-| `.deb`, `.rpm`, `.AppImage`, `.tar.gz` | Linux |
-| `.dmg`, `.app.tar.gz` | macOS |
+| Windows | Windows 10 o posterior, 64 bits |
+| Linux | x86_64 y ARM. Paquetes `.deb`, `.rpm` y `.AppImage` |
+| Android | Android 7 o posterior, incluido Android TV |
 
-Lo que no encaje en ninguna (firmas, `latest.json` del actualizador, ficheros
-de resúmenes) no se enseña, que es lo que se quiere: nadie los descarga a mano.
+Las descargas están en la
+[página de descargas](https://lince.mibaltoalex.com/descargar/) y en las
+[releases](../../releases) de este repositorio.
 
-Si en el nombre aparece `arm64`/`aarch64`, `armv7` o `x86_64`, se usa como
-etiqueta para distinguir varios ficheros de la misma plataforma. Por eso
-conviene nombrarlos de forma consistente, por ejemplo:
+## Sobre este repositorio
 
-```
-LinceBlob_2.13.0_x64-setup.exe
-LinceBlob_2.13.0_amd64.deb
-LinceBlob_2.13.0_aarch64.AppImage
-LinceBlob_v2.13.0.apk
-```
+Aquí vive la web pública del proyecto y se publican las versiones. **El código
+de la aplicación no se distribuye**: LinceBlob es software propietario y lo que
+se reparte son los programas ya compilados.
 
-Si la API falla o se agota el límite de peticiones de GitHub (60 por hora y
-por IP para quien no se identifica), la página enseña el enlace a
-`/releases/latest`, que siempre funciona.
+- [Términos de uso](https://lince.mibaltoalex.com/terminos/)
+- [Política de privacidad](https://lince.mibaltoalex.com/privacidad/)
+- [Licencias de terceros](https://lince.mibaltoalex.com/licencias/)
 
-## Ver la web en local
+Si quieres tocar la web, las instrucciones están en [WEB.md](WEB.md).
 
-```bash
-bundle install
-bundle exec jekyll serve --livereload
-```
+## Ayuda
 
-En <http://127.0.0.1:4000/LinceBlob/>. Hace falta Ruby.
+¿Algo no va como debería? Abre una [incidencia](../../issues) contando qué
+sistema usas, qué versión de LinceBlob y qué estabas haciendo. También puedes
+escribir por Telegram a [@shellord_bot](https://t.me/shellord_bot).
 
-## Qué hay aquí
+## Autoría
 
-| Fichero | Qué es |
-|---|---|
-| `_config.yml` | Configuración: repositorio, URL, datos de contacto |
-| `_layouts/default.html` | Plantilla común (cabecera, menú, pie) |
-| `assets/css/estilo.css` | Todos los estilos, con modo claro y oscuro |
-| `assets/js/descargas.js` | Lee las releases y pinta las descargas |
-| `index.html` | Portada |
-| `descargar.html` | Descargas y guía de instalación |
-| `documentacion.html` | Guía de uso |
-| `privacidad.html` | Política de privacidad |
-| `terminos.html` | Términos de uso |
-| `licencias.html` | Licencia propia y resumen de componentes de terceros |
-| `terceros.html` | **Generado.** Lista completa de dependencias con su licencia |
-
-## Regenerar la lista de terceros
-
-`terceros.html` no se edita a mano: lo escribe un script del proyecto de la
-aplicación, leyendo las dependencias de verdad.
-
-```bash
-cd ruta/al/proyecto/sobapp
-node scripts/generar-licencias.mjs ruta/a/esta/carpeta
-```
-
-Hay que volver a ejecutarlo cada vez que se añada o actualice una dependencia.
-El script avisa por pantalla si aparece algún componente sin licencia
-declarada o alguno nuevo bajo MPL-2.0, que son los dos casos que piden
-atención.
-
-> El sidecar `mar` (compresión) no entra en el recuento: su código vive fuera
-> de este árbol. Si se incorpora, basta con añadir su ruta a `RAICES_CARGO`
-> dentro del script.
-
-Los textos legales vienen de `docs/legal/*.html` del proyecto de la
-aplicación. Si allí se cambian, hay que traerlos otra vez aquí: son la misma
-redacción con la plantilla de la web alrededor.
+Hecho por [Miguel J. Carmona (MIBALTOALEX)](https://me.mibaltoalex.com/).
