@@ -179,6 +179,15 @@ pre code { background: none; border: 0; padding: 0; }
     radial-gradient(60rem 22rem at 50% -8rem, color-mix(in srgb, var(--verde) 14%, transparent), transparent);
 }
 
+/* Es el icono del instalador tal cual, con su transparencia: se ve bien sobre
+   el fondo claro y sobre el oscuro sin trucos de mezcla. */
+.logo-heroe {
+  width: clamp(150px, 26vw, 240px);
+  height: auto;
+  margin: 0 auto .5rem;
+  display: block;
+}
+
 .heroe h1 {
   font-size: clamp(2rem, 5vw, 3rem);
   line-height: 1.15;

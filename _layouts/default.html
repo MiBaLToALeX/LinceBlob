@@ -6,7 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} · {{ site.tagline }}{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
-  <link rel="icon" href="{{ '/assets/img/icono.svg' | relative_url }}" type="image/svg+xml">
+  <!-- Los mismos iconos que llevan el instalador y la aplicación
+       (src-tauri/icons), para que la web y el programa se vean iguales. -->
+  <link rel="icon" href="{{ '/assets/img/icono-32.png' | relative_url }}" sizes="32x32" type="image/png">
+  <link rel="icon" href="{{ '/assets/img/icono-128.png' | relative_url }}" sizes="128x128" type="image/png">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/icono-512.png' | relative_url }}">
+  <meta property="og:image" content="{{ '/assets/img/icono-512.png' | absolute_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/estilo.css' | relative_url }}">
   {% seo title=false %}
 </head>
@@ -17,7 +22,7 @@
   <header class="cabecera">
     <div class="contenedor cabecera-caja">
       <a class="marca" href="{{ '/' | relative_url }}">
-        <img src="{{ '/assets/img/icono.svg' | relative_url }}" alt="" width="28" height="28">
+        <img src="{{ '/assets/img/icono-128.png' | relative_url }}" alt="" width="28" height="28">
         <span>LinceBlob</span>
       </a>
 
