@@ -1,0 +1,182 @@
+---
+layout: default
+title: Documentación
+permalink: /documentacion/
+description: Guía de uso de LinceBlob: enviar y recibir archivos, dispositivos cercanos, reenvío de puertos y ajustes.
+---
+
+<div class="documento">
+  <h1>Documentación</h1>
+  <p class="fecha">Guía de uso de LinceBlob para Windows, Linux y Android.</p>
+
+  <h2>La idea en una frase</h2>
+  <p>
+    Quien envía genera un <strong>código</strong> (lo llamamos <em>ticket</em>).
+    Quien recibe lo pega, y los dos aparatos se conectan entre sí para pasar el
+    archivo. Ese código es la llave: quien lo tenga puede descargar el
+    contenido, así que trátalo como tratarías una contraseña.
+  </p>
+
+  <h2>Enviar</h2>
+  <ol>
+    <li>Abre LinceBlob y arrastra el archivo o la carpeta a la ventana (o pulsa
+      <em>Enviar</em> y elígelo).</li>
+    <li>Cuando termine de prepararse aparece el código, junto a tres botones:
+      <strong>Copiar</strong>, <strong>Mostrar QR</strong> y
+      <strong>Enviar a un dispositivo cercano</strong>.</li>
+    <li>Haz llegar el código a la otra persona por donde prefieras.</li>
+  </ol>
+  <div class="aviso">
+    <p>
+      <strong>Mientras dura el envío, la aplicación tiene que seguir abierta.</strong>
+      El archivo sale de tu aparato, no de un servidor: si cierras LinceBlob,
+      el código deja de servir.
+    </p>
+  </div>
+
+  <h2>Recibir</h2>
+  <p>
+    Pulsa <em>Recibir</em> y pega el código. En el móvil también puedes
+    escanear el QR con la cámara: se abre LinceBlob y la descarga arranca
+    sola. Los archivos van a la carpeta que tengas puesta en
+    Ajustes → Descargas.
+  </p>
+  <p>
+    Si ya existe un archivo con ese nombre, LinceBlob pregunta antes de tocar
+    nada: puedes reemplazarlo, guardar los dos o cancelar.
+  </p>
+
+  <h2>Dispositivos cercanos</h2>
+  <p>
+    Cuando los dos aparatos están en la misma red (la wifi de casa, por
+    ejemplo), no hace falta pasar ningún código: se elige el otro aparato por
+    su nombre y allí salta un aviso para aceptar o rechazar.
+  </p>
+  <p>Para que funcione, en <strong>los dos</strong> aparatos:</p>
+  <ol>
+    <li>Entra en <strong>Ajustes → Seguridad</strong>.</li>
+    <li>Activa <strong>Visible en la red local</strong>.</li>
+    <li>Ponle un nombre reconocible al aparato, si no te vale el que trae.</li>
+  </ol>
+  <p>
+    Viene desactivado a propósito: anunciarse publica el nombre del aparato a
+    cualquiera que esté en esa misma red, y eso conviene que sea una decisión
+    tuya y no algo que pase solo al conectarte a la wifi de un aeropuerto.
+  </p>
+  <p>
+    Si los dos están visibles y aun así no se ven, casi siempre es la red:
+    muchas wifis públicas y algunos routers domésticos tienen «aislamiento de
+    clientes» y no dejan que los aparatos se hablen entre ellos. Ahí sigue
+    funcionando el código de siempre.
+  </p>
+
+  <h2>Reenvío de puertos</h2>
+  <p>
+    Sirve para llegar a un servicio que corre en otro equipo —un panel de
+    administración, un servidor de pruebas, una cámara— como si estuvieras en
+    su misma red.
+  </p>
+  <h3>Publicar</h3>
+  <ol>
+    <li>En el equipo donde corre el servicio, abre <em>Reenviar puertos</em>.</li>
+    <li>Indica la dirección y el puerto (por ejemplo <code>127.0.0.1:8080</code>).</li>
+    <li>Comparte el código que aparece.</li>
+  </ol>
+  <h3>Consumir</h3>
+  <ol>
+    <li>En el otro equipo, pega el código y elige un puerto local.</li>
+    <li>Abre <code>http://127.0.0.1:</code>«ese puerto» en el navegador.</li>
+  </ol>
+  <p>
+    En Android la conexión aguanta aunque salgas de la aplicación para abrir el
+    navegador: mientras está activa se queda una notificación permanente, que
+    es lo que impide que el sistema congele la app.
+  </p>
+
+  <h2>Confirmar cada descarga</h2>
+  <p>
+    En <strong>Ajustes → Seguridad</strong> puedes activar
+    <strong>Confirmar descargas</strong>. Con eso, cada vez que alguien intente
+    descargar lo que compartes, te sale un aviso para permitirlo o no. Es un
+    segundo control por si el código acaba en más manos de las previstas
+    —se reenvía, se publica, alguien fotografía el QR—.
+  </p>
+
+  <h2>Ajustes que conviene mirar</h2>
+  <div class="tabla-ancha">
+    <table>
+      <thead>
+        <tr><th>Ajuste</th><th>Para qué sirve</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Carpeta de descargas</td>
+          <td>Dónde se guarda lo que recibes. Muestra el espacio libre que queda.</td>
+        </tr>
+        <tr>
+          <td>Visible en la red local</td>
+          <td>Necesario para dispositivos cercanos. Apagado de fábrica.</td>
+        </tr>
+        <tr>
+          <td>Confirmar descargas</td>
+          <td>Te pregunta antes de servir cada descarga.</td>
+        </tr>
+        <tr>
+          <td>Permitir capturas de pantalla</td>
+          <td>Si lo desactivas, el sistema impide fotografiar la ventana.</td>
+        </tr>
+        <tr>
+          <td>Actualizaciones automáticas</td>
+          <td>Busca versiones nuevas al arrancar (solo en escritorio).</td>
+        </tr>
+        <tr>
+          <td>Idioma</td>
+          <td>Español, inglés, portugués, francés e italiano.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Atajos de teclado</h2>
+  <div class="tabla-ancha">
+    <table>
+      <thead>
+        <tr><th>Atajo</th><th>Qué hace</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>Ctrl</code> + <code>K</code></td><td>Buscador de herramientas</td></tr>
+        <tr><td><code>Esc</code></td><td>Cierra la ventana o el panel abierto</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Problemas frecuentes</h2>
+
+  <h3>«La conexión no se establece»</h3>
+  <p>
+    Comprueba que quien envía sigue con la aplicación abierta. Si la red es muy
+    restrictiva (redes de empresa, algunas redes móviles), la conexión directa
+    puede no ser posible y se pasa por un relé, que va más lento pero funciona.
+  </p>
+
+  <h3>El código no vale</h3>
+  <p>
+    Los códigos no caducan por tiempo, pero dejan de servir cuando quien envía
+    cierra la aplicación. Pide uno nuevo.
+  </p>
+
+  <h3>En Android no aparece la carpeta que quiero</h3>
+  <p>
+    Hace falta concederle el permiso de almacenamiento en
+    Ajustes → Descargas. Android lo pide en su propia pantalla de sistema.
+  </p>
+
+  <h2>¿Sigues atascado?</h2>
+  <p>
+    Abre una incidencia en
+    <a href="https://github.com/{{ site.repositorio }}/issues">GitHub</a> o
+    escribe por Telegram a <a href="https://t.me/{{ site.telegram }}">@{{ site.telegram }}</a>.
+    Si es un fallo, ayuda mucho decir el sistema, la versión de LinceBlob y qué
+    estabas haciendo.
+  </p>
+</div>

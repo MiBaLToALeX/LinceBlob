@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} · {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="icon" href="{{ '/assets/img/icono.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/css/estilo.css' | relative_url }}">
+  {% seo title=false %}
+</head>
+
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-caja">
+      <a class="marca" href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/img/icono.svg' | relative_url }}" alt="" width="28" height="28">
+        <span>LinceBlob</span>
+      </a>
+
+      <!-- Casilla + etiqueta: el menú de móvil abre y cierra sin una línea de
+           JavaScript, así que funciona aunque el script falle o tarde. -->
+      <input type="checkbox" id="abrir-menu" class="abrir-menu">
+      <label for="abrir-menu" class="boton-menu" aria-label="Abrir menú">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+        </svg>
+      </label>
+
+      <nav class="navegacion">
+        {% assign actual = page.url | remove: '/index.html' %}
+        <a href="{{ '/descargar/' | relative_url }}" {% if actual contains 'descargar' %}aria-current="page"{% endif %}>Descargar</a>
+        <a href="{{ '/documentacion/' | relative_url }}" {% if actual contains 'documentacion' %}aria-current="page"{% endif %}>Documentación</a>
+        <a href="{{ '/privacidad/' | relative_url }}" {% if actual contains 'privacidad' %}aria-current="page"{% endif %}>Privacidad</a>
+        <a class="nav-externo" href="https://github.com/{{ site.repositorio }}">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    {{ content }}
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-caja">
+      <div>
+        <strong>LinceBlob</strong>
+        <p class="pie-nota">{{ site.tagline }}.</p>
+      </div>
+      <nav class="pie-enlaces">
+        <a href="{{ '/descargar/' | relative_url }}">Descargar</a>
+        <a href="{{ '/documentacion/' | relative_url }}">Documentación</a>
+        <a href="{{ '/privacidad/' | relative_url }}">Política de privacidad</a>
+        <a href="{{ '/terminos/' | relative_url }}">Términos de uso</a>
+        <a href="{{ '/licencias/' | relative_url }}">Licencias</a>
+      </nav>
+    </div>
+    <p class="contenedor pie-firma">
+      © {{ 'now' | date: "%Y" }} <a href="{{ site.autor_url }}">{{ site.autor }}</a>.
+      LinceBlob es software propietario: se distribuyen los binarios, no el código.
+    </p>
+  </footer>
+</body>
+
+</html>

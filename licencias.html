@@ -1,0 +1,117 @@
+---
+layout: default
+title: Licencias
+permalink: /licencias/
+description: Licencia de LinceBlob y componentes de terceros que utiliza.
+---
+
+<div class="documento">
+  <h1>Licencias</h1>
+  <p class="fecha">Última revisión: {{ 'now' | date: "%-d de %B de %Y" }}</p>
+
+  <h2>LinceBlob</h2>
+  <p>
+    LinceBlob es <strong>software propietario</strong>. Se distribuyen los
+    programas ya compilados, no el código fuente. La licencia de uso está en
+    los <a href="{{ '/terminos/' | relative_url }}">términos de uso</a>, que es
+    lo que aceptas al instalarlo.
+  </p>
+  <p>
+    En resumen: puedes usarlo, para lo que quieras, personal o
+    profesionalmente, y sin pagar nada. Lo que no puedes es redistribuirlo
+    modificado, descompilarlo ni venderlo como si fuera tuyo.
+  </p>
+
+  <h2>Componentes de terceros</h2>
+  <p>
+    LinceBlob se apoya en proyectos libres, cada uno con su licencia. Estas
+    son las piezas principales:
+  </p>
+
+  <div class="tabla-ancha">
+    <table>
+      <thead>
+        <tr><th>Componente</th><th>Para qué</th><th>Licencia</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://tauri.app/">Tauri</a></td>
+          <td>Armazón de la aplicación de escritorio y móvil</td>
+          <td>MIT / Apache-2.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.iroh.computer/">iroh</a></td>
+          <td>Conexión directa entre aparatos y travesía de routers</td>
+          <td>MIT / Apache-2.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.rust-lang.org/">Rust</a> y su ecosistema</td>
+          <td>Todo el núcleo de transferencia</td>
+          <td>MIT / Apache-2.0</td>
+        </tr>
+        <tr>
+          <td><a href="https://react.dev/">React</a></td>
+          <td>Interfaz</td>
+          <td>MIT</td>
+        </tr>
+        <tr>
+          <td><a href="https://tailwindcss.com/">Tailwind CSS</a></td>
+          <td>Estilos de la interfaz</td>
+          <td>MIT</td>
+        </tr>
+        <tr>
+          <td><a href="https://facebook.github.io/zstd/">Zstandard</a></td>
+          <td>Compresión</td>
+          <td>BSD-3-Clause</td>
+        </tr>
+        <tr>
+          <td><a href="https://nsis.sourceforge.io/">NSIS</a></td>
+          <td>Instalador de Windows</td>
+          <td>zlib/libpng</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Esta es la lista de referencia: <strong>Ajustes → Acerca de → Licencias</strong>,
+    dentro de la aplicación, abre esta misma página. Así basta con mantenerla
+    en un sitio, y quien tenga una versión antigua instalada sigue viendo la
+    información al día.
+  </p>
+
+  <p>
+    <a class="boton boton-primario" href="{{ '/licencias/terceros/' | relative_url }}">
+      Ver la lista completa de componentes
+    </a>
+  </p>
+
+  <h3>Licencias con condiciones particulares</h3>
+  <p>
+    Varios componentes se ofrecen bajo <strong>varias licencias a elegir</strong>
+    (por ejemplo <code>MIT OR Apache-2.0</code>, o la propia Zstandard con
+    <code>BSD-3-Clause OR GPL-2.0</code>). En todos esos casos LinceBlob se
+    acoge a la opción permisiva, que es la que permite distribuir un programa
+    propietario. Ninguna obliga a publicar el código de LinceBlob.
+  </p>
+  <p>
+    Siete componentes están bajo <strong>MPL-2.0</strong>, que es copyleft por
+    fichero: obliga a que quien recibe el programa pueda conseguir el código de
+    esos componentes concretos, no el del programa que los usa. Se utilizan sin
+    modificar y sus repositorios están enlazados en
+    <a href="{{ '/licencias/terceros/' | relative_url }}">la lista completa</a>.
+  </p>
+
+  <h2>Marcas</h2>
+  <p>
+    «LinceBlob» y su logotipo son de {{ site.autor }}. Los demás nombres y
+    logotipos que aparezcan pertenecen a sus respectivos dueños y se citan solo
+    para identificar los componentes.
+  </p>
+
+  <h2>Contacto</h2>
+  <p>
+    Para cualquier duda sobre licencias, escribe a
+    <a href="mailto:{{ site.correo }}">{{ site.correo }}</a>.
+  </p>
+</div>

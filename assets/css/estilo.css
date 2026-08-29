@@ -1,0 +1,457 @@
+/* Estilos de la web de LinceBlob.
+ *
+ * Los colores son los de la aplicación (verde lince) para que la web y el
+ * programa se reconozcan como la misma cosa. Todo en un fichero: la web son
+ * cinco páginas y partirlo solo añadiría peticiones. */
+
+:root {
+  --verde: #3e9421;
+  --verde-claro: #8fcb15;
+  --verde-oscuro: #2c6b17;
+  --fondo: #ffffff;
+  --fondo-2: #f5f7f4;
+  --texto: #16211a;
+  --texto-2: #5a6b60;
+  --borde: #dfe5e0;
+  --sombra: 0 1px 2px rgb(22 33 26 / 6%), 0 8px 24px rgb(22 33 26 / 6%);
+  --radio: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --verde: #6cb33f;
+    --verde-claro: #8fcb15;
+    --verde-oscuro: #4d8f2a;
+    --fondo: #0f1512;
+    --fondo-2: #161d18;
+    --texto: #e8efe9;
+    --texto-2: #9db0a3;
+    --borde: #26302a;
+    --sombra: none;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+a { color: var(--verde); }
+a:hover { color: var(--verde-oscuro); }
+
+img { max-width: 100%; height: auto; }
+
+code, kbd, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .92em;
+}
+
+code {
+  background: var(--fondo-2);
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  padding: .1em .35em;
+}
+
+pre {
+  background: var(--fondo-2);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+pre code { background: none; border: 0; padding: 0; }
+
+.contenedor {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* El enlace de saltar solo aparece al llegar a él con el tabulador: quien
+   navega con teclado no debería recorrer el menú entero en cada página. */
+.saltar {
+  position: absolute;
+  left: -9999px;
+}
+
+.saltar:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  background: var(--verde);
+  color: #fff;
+  padding: .5rem .9rem;
+  border-radius: 8px;
+}
+
+/* ------------------------------------------------------------------ cabecera */
+
+.cabecera {
+  border-bottom: 1px solid var(--borde);
+  background: var(--fondo);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.cabecera-caja {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 60px;
+  flex-wrap: wrap;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--texto);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.navegacion {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.navegacion a {
+  text-decoration: none;
+  color: var(--texto-2);
+  font-weight: 500;
+  padding: .25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.navegacion a:hover { color: var(--texto); }
+
+.navegacion a[aria-current="page"] {
+  color: var(--texto);
+  border-bottom-color: var(--verde);
+}
+
+.abrir-menu, .boton-menu { display: none; }
+
+@media (max-width: 44rem) {
+  .boton-menu {
+    display: inline-flex;
+    color: var(--texto-2);
+    cursor: pointer;
+    padding: .4rem;
+  }
+
+  .navegacion {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-bottom: .5rem;
+  }
+
+  .abrir-menu:checked ~ .navegacion { display: flex; }
+
+  .navegacion a {
+    padding: .7rem .25rem;
+    border-bottom: 1px solid var(--borde);
+  }
+}
+
+/* --------------------------------------------------------------------- héroe */
+
+.heroe {
+  padding: 4rem 0 3rem;
+  text-align: center;
+  background:
+    radial-gradient(60rem 22rem at 50% -8rem, color-mix(in srgb, var(--verde) 14%, transparent), transparent);
+}
+
+.heroe h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  margin: 0 0 .75rem;
+  letter-spacing: -.02em;
+}
+
+.heroe p {
+  font-size: 1.15rem;
+  color: var(--texto-2);
+  max-width: 40rem;
+  margin: 0 auto 1.75rem;
+}
+
+.acciones {
+  display: flex;
+  gap: .75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .7rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.boton-primario {
+  background: var(--verde);
+  color: #fff;
+}
+
+.boton-primario:hover {
+  background: var(--verde-oscuro);
+  color: #fff;
+}
+
+.boton-secundario {
+  border-color: var(--borde);
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+.boton-secundario:hover {
+  background: var(--fondo-2);
+  color: var(--texto);
+}
+
+/* ------------------------------------------------------------------ secciones */
+
+.seccion { padding: 3rem 0; }
+.seccion-gris { background: var(--fondo-2); border-block: 1px solid var(--borde); }
+
+.seccion h2 {
+  font-size: 1.6rem;
+  margin: 0 0 .5rem;
+  letter-spacing: -.01em;
+}
+
+.seccion > .contenedor > p:first-of-type { color: var(--texto-2); }
+
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.tarjeta {
+  background: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1.25rem;
+  box-shadow: var(--sombra);
+}
+
+.tarjeta h3 {
+  margin: .35rem 0 .4rem;
+  font-size: 1.05rem;
+}
+
+.tarjeta p {
+  margin: 0;
+  color: var(--texto-2);
+  font-size: .95rem;
+}
+
+.icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--verde) 15%, transparent);
+  color: var(--verde);
+}
+
+/* ------------------------------------------------------------------ descargas */
+
+.descargas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.plataforma {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1.25rem;
+  background: var(--fondo);
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.plataforma h3 {
+  margin: .5rem 0 0;
+  font-size: 1.1rem;
+}
+
+.plataforma .requisitos {
+  color: var(--texto-2);
+  font-size: .88rem;
+  margin: 0 0 .5rem;
+}
+
+.plataforma ul {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.plataforma li a {
+  display: flex;
+  justify-content: space-between;
+  gap: .75rem;
+  align-items: baseline;
+  text-decoration: none;
+  border: 1px solid var(--borde);
+  border-radius: 9px;
+  padding: .5rem .75rem;
+  color: var(--texto);
+  font-size: .93rem;
+}
+
+.plataforma li a:hover {
+  border-color: var(--verde);
+  color: var(--texto);
+}
+
+.peso {
+  color: var(--texto-2);
+  font-size: .82rem;
+  white-space: nowrap;
+}
+
+.aviso-version {
+  margin-top: 1rem;
+  color: var(--texto-2);
+  font-size: .95rem;
+}
+
+.cargando { color: var(--texto-2); }
+
+.error-descargas {
+  border: 1px solid var(--borde);
+  border-left: 3px solid #d97706;
+  border-radius: var(--radio);
+  padding: 1rem 1.25rem;
+  background: var(--fondo-2);
+}
+
+/* ---------------------------------------------------------------- documentos */
+
+.documento {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+.documento h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 .25rem; }
+.documento h2 { font-size: 1.25rem; margin: 2rem 0 .5rem; }
+.documento h3 { font-size: 1.05rem; margin: 1.5rem 0 .35rem; }
+.documento ul, .documento ol { padding-left: 1.25rem; }
+.documento li { margin: .3rem 0; }
+
+.documento table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: .95rem;
+}
+
+.documento th, .documento td {
+  border: 1px solid var(--borde);
+  padding: .5rem .7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.documento th { background: var(--fondo-2); }
+
+/* Las tablas anchas se desplazan dentro de su caja: el cuerpo de la página
+   nunca debe moverse en horizontal. */
+.tabla-ancha { overflow-x: auto; }
+
+.fecha {
+  color: var(--texto-2);
+  font-size: .9rem;
+  margin: 0 0 2rem;
+}
+
+.aviso {
+  border: 1px solid var(--borde);
+  border-left: 3px solid var(--verde);
+  background: var(--fondo-2);
+  border-radius: var(--radio);
+  padding: .9rem 1.1rem;
+  margin: 1.25rem 0;
+}
+
+.aviso p:first-child { margin-top: 0; }
+.aviso p:last-child { margin-bottom: 0; }
+
+/* ----------------------------------------------------------------------- pie */
+
+.pie {
+  border-top: 1px solid var(--borde);
+  background: var(--fondo-2);
+  padding: 2.5rem 0 1.5rem;
+  margin-top: 3rem;
+}
+
+.pie-caja {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pie-nota {
+  color: var(--texto-2);
+  margin: .25rem 0 0;
+  max-width: 24rem;
+}
+
+.pie-enlaces {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.pie-enlaces a {
+  color: var(--texto-2);
+  text-decoration: none;
+  font-size: .95rem;
+}
+
+.pie-enlaces a:hover { color: var(--texto); }
+
+.pie-firma {
+  margin: 2rem auto 0;
+  color: var(--texto-2);
+  font-size: .85rem;
+}

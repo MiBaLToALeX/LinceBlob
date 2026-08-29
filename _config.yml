@@ -1,0 +1,44 @@
+# Configuración de la página pública de LinceBlob (GitHub Pages + Jekyll).
+#
+# El sitio vive en el repositorio público github.com/MiBaLToALeX/LinceBlob,
+# que es solo la web y las descargas: el código de la aplicación no se
+# distribuye y no debe subirse aquí.
+
+title: LinceBlob
+tagline: Envía archivos de un aparato a otro, cifrados de extremo a extremo
+description: >-
+  LinceBlob envía archivos y carpetas directamente entre tus aparatos, sin
+  servidores de por medio y con cifrado de extremo a extremo. Windows, Linux
+  y Android.
+
+# Dominio propio (ver el fichero CNAME de la raíz). Con dominio propio la web
+# cuelga de la raíz, así que `baseurl` va vacío: dejarlo en "/LinceBlob"
+# haría que el CSS y los enlaces apuntaran a una ruta que ahí no existe.
+url: "https://lince.mibaltoalex.com"
+baseurl: ""
+
+# De dónde salen las descargas. La página las lee en vivo de la API de
+# GitHub, así que al publicar una release nueva la web se actualiza sola y no
+# hay que tocar nada aquí.
+repositorio: MiBaLToALeX/LinceBlob
+
+autor: Miguel J. Carmona (MIBALTOALEX)
+autor_url: https://me.mibaltoalex.com/
+correo: miguel@mibaltoalex.com
+telegram: shellord_bot
+
+lang: es
+
+# Jekyll construye el sitio; `_site` y las cachés no se suben.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+
+# Sin tema de gemas: las plantillas están en `_layouts` y el CSS en
+# `assets/css`. Un tema externo obligaría a pelearse con sus estilos para
+# dejar la web con los colores de la aplicación.
+theme: null
+plugins:
+  - jekyll-seo-tag

@@ -1,0 +1,94 @@
+---
+layout: default
+title: Descargar
+permalink: /descargar/
+description: Descarga LinceBlob para Windows, Linux y Android. Última versión publicada en GitHub Releases.
+---
+
+<section class="seccion">
+  <div class="contenedor">
+    <h1>Descargar LinceBlob</h1>
+    <p>
+      Los ficheros salen directamente de las releases del proyecto en GitHub,
+      así que aquí siempre está la última versión publicada.
+    </p>
+
+    <!-- Se rellena con la release más reciente. Mientras llega la respuesta
+         se enseña el enlace de siempre, que funciona sin JavaScript. -->
+    <div id="descargas" data-repositorio="{{ site.repositorio }}">
+      <p class="cargando">
+        Buscando la última versión…
+        <a href="https://github.com/{{ site.repositorio }}/releases/latest">Ver en GitHub</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="seccion seccion-gris">
+  <div class="contenedor documento" style="padding-top:0;padding-bottom:0">
+    <h2>Cuál me descargo</h2>
+
+    <h3>Windows</h3>
+    <p>
+      El fichero <code>.exe</code> es el instalador. Al abrirlo, Windows puede
+      avisar de que es de un editor desconocido: es porque el instalador no
+      está firmado con un certificado de pago. Pulsa en <em>Más información</em>
+      y luego en <em>Ejecutar de todas formas</em>.
+    </p>
+    <p>
+      Una vez instalado, la aplicación se actualiza sola cuando hay versión
+      nueva; puedes desactivarlo en Ajustes.
+    </p>
+
+    <h3>Android</h3>
+    <p>
+      Descarga el <code>.apk</code> y ábrelo. Como no viene de Google Play,
+      Android pedirá permiso para instalar aplicaciones de esta procedencia;
+      hay que concederlo una vez.
+    </p>
+    <p>
+      El APK universal vale para cualquier móvil o televisor. Si prefieres uno
+      más pequeño, los que llevan <code>arm64</code> en el nombre sirven para
+      prácticamente todo lo fabricado en la última década, y los
+      <code>armv7</code> solo para aparatos antiguos de 32 bits.
+    </p>
+
+    <h3>Linux</h3>
+    <div class="tabla-ancha">
+      <table>
+        <thead>
+          <tr><th>Fichero</th><th>Para</th><th>Cómo se instala</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>.deb</code></td>
+            <td>Debian, Ubuntu, Mint</td>
+            <td><code>sudo apt install ./LinceBlob_*.deb</code></td>
+          </tr>
+          <tr>
+            <td><code>.rpm</code></td>
+            <td>Fedora, openSUSE</td>
+            <td><code>sudo dnf install ./LinceBlob-*.rpm</code></td>
+          </tr>
+          <tr>
+            <td><code>.AppImage</code></td>
+            <td>Cualquier distribución</td>
+            <td>Dale permiso de ejecución y ábrelo, sin instalar nada</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="aviso">
+      <p>
+        <strong>Comprueba lo que descargas.</strong> Cada release incluye los
+        resúmenes SHA-256 de los ficheros. En Windows,
+        <code>certutil -hashfile fichero SHA256</code>; en Linux y macOS,
+        <code>sha256sum fichero</code>. Si el resultado no coincide con el
+        publicado, no lo instales.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script src="{{ '/assets/js/descargas.js' | relative_url }}" defer></script>
