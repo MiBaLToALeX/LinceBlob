@@ -464,3 +464,15 @@ pre code { background: none; border: 0; padding: 0; }
   color: var(--texto-2);
   font-size: .85rem;
 }
+
+/* Herramientas de línea de órdenes, debajo de las descargas de la aplicación. */
+.titulo-herramientas {
+  font-size: 1.3rem;
+  margin: 2.5rem 0 .25rem;
+  letter-spacing: -.01em;
+}
+
+.nota-herramientas {
+  color: var(--texto-2);
+  margin: 0;
+}

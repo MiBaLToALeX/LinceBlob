@@ -108,12 +108,81 @@
       '<p><a class="boton boton-primario" href="' + urlReleases + '">Ver releases en GitHub</a></p></div>';
   }
 
+  // En la misma release conviven tres programas distintos: la aplicación y las
+  // dos herramientas de línea de órdenes. Clasificar solo por extensión los
+  // mezclaba, y en Windows salían tres «exe · x86_64» seguidos sin forma de
+  // saber cuál era cuál.
+  //
+  // Se mira el principio del nombre, exigiendo un separador detrás para que
+  // «marcadores.zip» no acabe en MAR. LinceBlob no colisiona: empieza por
+  // «lin», no por «lce».
+  const HERRAMIENTAS = [
+    {
+      id: "lce",
+      nombre: "Lince (CLI)",
+      descripcion: "Enviar y recibir desde la terminal",
+      prueba: /^lce[_\-.]/i,
+      icono: "M4 17l6-6-6-6M12 19h8",
+    },
+    {
+      id: "mar",
+      nombre: "MAR",
+      descripcion: "Comprimir, cifrar y dividir en partes",
+      prueba: /^mar[_\-.]/i,
+      icono: "M4 7h16M4 12h16M4 17h10",
+    },
+  ];
+
+  /** Sistema al que pertenece un binario de línea de órdenes. */
+  function sistemaDe(nombre) {
+    if (/\.exe$/i.test(nombre) || /windows|msvc/i.test(nombre)) return "Windows";
+    if (/darwin|apple|macos/i.test(nombre)) return "macOS";
+    if (/linux|gnu/i.test(nombre)) return "Linux";
+    return "";
+  }
+
+  /** Etiqueta de una herramienta: el sistema y, si se sabe, la arquitectura. */
+  function etiquetaHerramienta(nombre) {
+    const sistema = sistemaDe(nombre);
+    const arquitectura =
+      /aarch64|arm64/i.test(nombre) ? "ARM64" :
+      /armv7|armhf/i.test(nombre) ? "ARMv7" :
+      /x86[_-]?64|amd64|x64/i.test(nombre) ? "x86_64" : "";
+    if (sistema && arquitectura) return sistema + " · " + arquitectura;
+    return sistema || arquitectura || nombre;
+  }
+
+  function tarjeta(icono, titulo, subtitulo, ficheros) {
+    return (
+      '<div class="plataforma">' + svg(icono) +
+      "<h3>" + escapar(titulo) + "</h3>" +
+      '<p class="requisitos">' + escapar(subtitulo) + "</p>" +
+      "<ul>" + ficheros + "</ul></div>"
+    );
+  }
+
+  function fila(a, texto) {
+    return (
+      '<li><a href="' + a.browser_download_url + '">' +
+      "<span>" + escapar(texto) + "</span>" +
+      '<span class="peso">' + peso(a.size) + "</span></a></li>"
+    );
+  }
+
   function pintar(release) {
-    // Cada adjunto va a la primera plataforma que lo reconozca. Lo que no
-    // encaje en ninguna (firmas, latest.json del actualizador, checksums) no
-    // se enseña: no es algo que nadie vaya a descargar a mano.
+    // Cada adjunto va a una herramienta o, si no es de ninguna, a la primera
+    // plataforma que lo reconozca. Lo que no encaje en nada (firmas,
+    // latest.json del actualizador, checksums) no se enseña: no es algo que
+    // nadie vaya a descargar a mano.
     const porPlataforma = {};
+    const porHerramienta = {};
+
     (release.assets || []).forEach(function (a) {
+      const h = HERRAMIENTAS.find(function (h) { return h.prueba.test(a.name); });
+      if (h) {
+        (porHerramienta[h.id] = porHerramienta[h.id] || []).push(a);
+        return;
+      }
       const p = PLATAFORMAS.find(function (p) { return p.encaja(a.name); });
       if (!p) return;
       (porPlataforma[p.id] = porPlataforma[p.id] || []).push(a);
@@ -123,22 +192,21 @@
       return porPlataforma[p.id] && porPlataforma[p.id].length;
     }).map(function (p) {
       const ficheros = porPlataforma[p.id].map(function (a) {
-        return (
-          '<li><a href="' + a.browser_download_url + '">' +
-          "<span>" + escapar(etiqueta(a.name)) + "</span>" +
-          '<span class="peso">' + peso(a.size) + "</span></a></li>"
-        );
+        return fila(a, etiqueta(a.name));
       }).join("");
-
-      return (
-        '<div class="plataforma">' + svg(p.icono) +
-        "<h3>" + p.nombre + "</h3>" +
-        '<p class="requisitos">' + p.requisitos + "</p>" +
-        "<ul>" + ficheros + "</ul></div>"
-      );
+      return tarjeta(p.icono, p.nombre, p.requisitos, ficheros);
     });
 
-    if (!columnas.length) {
+    const herramientas = HERRAMIENTAS.filter(function (h) {
+      return porHerramienta[h.id] && porHerramienta[h.id].length;
+    }).map(function (h) {
+      const ficheros = porHerramienta[h.id].map(function (a) {
+        return fila(a, etiquetaHerramienta(a.name));
+      }).join("");
+      return tarjeta(h.icono, h.nombre, h.descripcion, ficheros);
+    });
+
+    if (!columnas.length && !herramientas.length) {
       pintarError();
       return;
     }
@@ -149,11 +217,21 @@
         })
       : "";
 
+    // Las herramientas van debajo y con su propio encabezado: quien entra a
+    // descargar quiere la aplicación, y estas son para quien las busca.
+    const bloqueHerramientas = herramientas.length
+      ? '<h2 class="titulo-herramientas">Herramientas de línea de órdenes</h2>' +
+        '<p class="nota-herramientas">Los mismos motores que usa la aplicación, ' +
+        "sueltos, para usarlos desde la terminal o en un servidor.</p>" +
+        '<div class="descargas">' + herramientas.join("") + "</div>"
+      : "";
+
     caja.innerHTML =
       '<div class="descargas">' + columnas.join("") + "</div>" +
       '<p class="aviso-version">Versión <strong>' + escapar(release.tag_name || "") + "</strong>" +
       (fecha ? ", publicada el " + fecha : "") + ". " +
-      '<a href="' + urlReleases + '">Ver todas las versiones y sus notas</a>.</p>';
+      '<a href="' + urlReleases + '">Ver todas las versiones y sus notas</a>.</p>' +
+      bloqueHerramientas;
   }
 
   fetch("https://api.github.com/repos/" + repositorio + "/releases/latest", {
