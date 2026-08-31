@@ -91,4 +91,8 @@ description: Descarga LinceBlob para Windows, Linux y Android. Última versión 
   </div>
 </section>
 
-<script src="{{ '/assets/js/descargas.js' | relative_url }}" defer></script>
+{% comment %}
+  El `?v=` cambia con cada publicación, para que el navegador no siga usando
+  una copia guardada del script cuando cambia cómo se agrupan las descargas.
+{% endcomment %}
+<script src="{{ '/assets/js/descargas.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

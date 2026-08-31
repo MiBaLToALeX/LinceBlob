@@ -12,7 +12,11 @@
   <link rel="icon" href="{{ '/assets/img/icono-128.png' | relative_url }}" sizes="128x128" type="image/png">
   <link rel="apple-touch-icon" href="{{ '/assets/img/icono-512.png' | relative_url }}">
   <meta property="og:image" content="{{ '/assets/img/icono-512.png' | absolute_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/estilo.css' | relative_url }}">
+  <!-- El `?v=` cambia en cada publicación (es la hora de compilación). Los
+       ficheros se llaman siempre igual, así que sin esto el navegador sigue
+       usando la copia que tenga guardada y los cambios no se ven hasta que
+       alguien fuerza la recarga, cosa que nadie hace. -->
+  <link rel="stylesheet" href="{{ '/assets/css/estilo.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   {% seo title=false %}
 </head>
 
