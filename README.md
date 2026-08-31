@@ -1,3 +1,7 @@
+[![Version][badge-version]](https://github.com/MiBaLToALeX/LinceBlob/releases/latest)
+![Website][badge-website]
+![Platforms][badge-platforms]
+
 <p align="center">
   <img src="assets/img/icono-512.png" width="140" alt="LinceBlob">
 </p>
@@ -5,8 +9,11 @@
 <h1 align="center">LinceBlob</h1>
 
 <p align="center">
-  Envía archivos de un dispositivo a otro sin que pasen por la nube de nadie.
+  Una herramienta para enviar archivos y directorios a cualquier parte del mundo sin almacenarlos en la nube. 
+</br>Gratis, rápido, seguro (cifrado E2E), sin cuentas, sin rastreo, basado en iroh
 </p>
+
+<p align="center"><strong>Idiomas:</strong> Español | English | Português | Français | Italiano</p>
 
 <p align="center">
   <a href="https://lince.mibaltoalex.com/descargar/">Descargar</a> ·
