@@ -220,9 +220,9 @@
     // Las herramientas van debajo y con su propio encabezado: quien entra a
     // descargar quiere la aplicación, y estas son para quien las busca.
     const bloqueHerramientas = herramientas.length
-      ? '<h2 class="titulo-herramientas">Herramientas de línea de órdenes</h2>' +
-        '<p class="nota-herramientas">Los mismos motores que usa la aplicación, ' +
-        "sueltos, para usarlos desde la terminal o en un servidor.</p>" +
+      ? '<h2 class="titulo-herramientas">Herramientas de línea de comandos</h2>' +
+        '<p class="nota-herramientas">Las herramientas de la aplicación, ' +
+        "disponibles de forma independiente para la terminal o el servidor..</p>" +
         '<div class="descargas">' + herramientas.join("") + "</div>"
       : "";
 
