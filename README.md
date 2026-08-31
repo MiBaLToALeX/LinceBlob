@@ -71,15 +71,12 @@ Las descargas están en la
 
 ## Sobre este repositorio
 
-Aquí vive la web pública del proyecto y se publican las versiones. **El código
-de la aplicación no se distribuye**: LinceBlob es software propietario y lo que
-se reparte son los programas ya compilados.
+Aquí encontrarás la web pública del proyecto y sus versiones disponibles. **El código fuente de la aplicación no se distribuye**: <br>
+LinceBlob es software propietario; únicamente se proporcionan los programas ya compilados.
 
 - [Términos de uso](https://lince.mibaltoalex.com/terminos/)
 - [Política de privacidad](https://lince.mibaltoalex.com/privacidad/)
 - [Licencias de terceros](https://lince.mibaltoalex.com/licencias/)
-
-Si quieres tocar la web, las instrucciones están en [WEB.md](WEB.md).
 
 ## Ayuda
 
@@ -87,9 +84,9 @@ Si quieres tocar la web, las instrucciones están en [WEB.md](WEB.md).
 sistema usas, qué versión de LinceBlob y qué estabas haciendo. También puedes
 escribir por Telegram a [@shellord_bot](https://t.me/shellord_bot).
 
-## Autoría
+## Créditos
 
-Hecho por [Miguel J. Carmona (MIBALTOALEX)](https://me.mibaltoalex.com/).
+Creado por [Miguel J. Carmona (MIBALTOALEX)](https://me.mibaltoalex.com/).
 
 
 [badge-website]: https://img.shields.io/badge/website-lince.mibaltoalex.com-green
