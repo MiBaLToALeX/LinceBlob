@@ -90,5 +90,5 @@ Creado por [Miguel J. Carmona (MIBALTOALEX)](https://me.mibaltoalex.com/).
 
 
 [badge-website]: https://img.shields.io/badge/website-lince.mibaltoalex.com-green
-[badge-version]: https://img.shields.io/badge/version-2.14.0-blue
+[badge-version]: https://img.shields.io/badge/version-2.17.0-blue
 [badge-platforms]: https://img.shields.io/badge/platforms-Windows%2C%20Linux%2C%20Android%2C%20CLI%20-green
