@@ -112,15 +112,50 @@ run_perl() {
   ' "$@"
 }
 
+# Busca una carpeta que de verdad deje ejecutar, no solo escribir.
+#
+# /dev/shm suele estar montado `noexec` en servidores y contenedores
+# endurecidos: se puede escribir pero no ejecutar. En vez de fiarse, se prueba
+# de verdad —se escribe un guion mínimo y se intenta correr— y se usa la primera
+# que funcione. $HOME casi siempre deja, aunque no sea RAM.
+carpeta_ejecutable() {
+  for d in "${TMPDIR:-}" /tmp "$HOME" "$(pwd)"; do
+    [ -n "$d" ] && [ -d "$d" ] && [ -w "$d" ] || continue
+    t="$d/.lce_test_$$"
+    printf '#!/bin/sh\nexit 0\n' >"$t" 2>/dev/null || continue
+    chmod +x "$t" 2>/dev/null || { rm -f "$t"; continue; }
+    if "$t" 2>/dev/null; then
+      rm -f "$t"
+      printf '%s\n' "$d"
+      return 0
+    fi
+    rm -f "$t"
+  done
+  return 1
+}
+
 if command -v python3 >/dev/null 2>&1; then
+  # memfd: descriptor anónimo en memoria. No le afecta que /dev/shm sea noexec,
+  # porque no ejecuta un fichero montado, sino un descriptor sin montaje.
   info "Ejecutando en memoria…"
   run_python "$bin" "$@"
 elif command -v perl >/dev/null 2>&1; then
   info "Ejecutando en memoria…"
   run_perl "$memfd_nr" "$bin" "$@"
 else
-  # Sin python ni perl: se ejecuta el fichero de RAM directamente.
-  info "Ejecutando desde /dev/shm …"
-  chmod +x "$bin"
-  "$bin" "$@"
+  # Sin python ni perl hay que ejecutar el fichero, así que necesita una carpeta
+  # con permiso de ejecución.
+  destino="$(carpeta_ejecutable)" || error \
+    "sin python3 ni perl, y ninguna carpeta temporal deja ejecutar (noexec). Instala python3 o perl, o monta /tmp con permiso de ejecución."
+
+  ejecutable="$destino/lce_$$"
+  # Se amplía la limpieza a esta segunda copia.
+  trap 'rm -f "$bin" "$ejecutable"' EXIT INT TERM
+  cp "$bin" "$ejecutable" || error "no se pudo preparar el binario en $destino."
+  rm -f "$bin"
+  chmod +x "$ejecutable"
+
+  info "Ejecutando desde $destino …"
+  # Sin `exec`: así la limpieza (trap) borra la copia al terminar.
+  "$ejecutable" "$@"
 fi
