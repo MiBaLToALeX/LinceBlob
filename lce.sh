@@ -13,8 +13,9 @@
 # deja el binario. Para tenerlo instalado, descarga el paquete .deb/.rpm o el
 # binario suelto de las releases.
 #
-# Es /bin/sh a propósito (no bash): así corre también en Alpine y en contenedores
-# mínimos, donde bash no está.
+# Es /bin/sh a propósito (no bash): así corre con dash, busybox y demás shells
+# mínimos, sin depender de que bash esté. (Ojo: Alpine no vale, no por el shell
+# sino porque usa musl y los binarios son de glibc; se avisa más abajo.)
 #
 # (c) Miguel J. Carmona (MIBALTOALEX).
 
@@ -33,14 +34,17 @@ info()  { printf '%s%s%s\n' "$tenue" "$*" "$fin" >&2; }
 
 [ "$(uname -s)" = "Linux" ] || error "solo para Linux (x86_64, aarch64, armv7)."
 
-# Cada arquitectura, al nombre del fichero de la release y al número de syscall
-# de memfd_create (que cambia por arquitectura). Es la única tabla que mantener.
+# Cada arquitectura, al nombre del fichero de la release, al número de syscall
+# de memfd_create (cambia por arquitectura) y al cargador dinámico de glibc que
+# el binario necesita.
 case "$(uname -m)" in
-  x86_64 | amd64)          activo="lce_linux_x86_64";  memfd_nr=319 ;;
-  aarch64 | arm64)         activo="lce_linux_aarch64"; memfd_nr=279 ;;
-  armv7l | armv7 | armhf)  activo="lce_linux_armv7";   memfd_nr=385 ;;
+  x86_64 | amd64)          activo="lce_linux_x86_64";  memfd_nr=319; cargador="/lib64/ld-linux-x86-64.so.2" ;;
+  aarch64 | arm64)         activo="lce_linux_aarch64"; memfd_nr=279; cargador="/lib/ld-linux-aarch64.so.1" ;;
+  armv7l | armv7 | armhf)  activo="lce_linux_armv7";   memfd_nr=385; cargador="/lib/ld-linux-armhf.so.3" ;;
   *) error "arquitectura no soportada: $(uname -m). Solo x86_64, aarch64 y armv7." ;;
 esac
+
+[ -e "$cargador" ] || error "este sistema no tiene glibc (¿Alpine/musl?). lce se distribuye para glibc: usa Debian, Ubuntu, Fedora, Arch o similar."
 
 url="https://github.com/MiBaLToALeX/LinceBlob/releases/latest/download/$activo"
 
@@ -115,9 +119,7 @@ run_perl() {
 # Busca una carpeta que de verdad deje ejecutar, no solo escribir.
 #
 # /dev/shm suele estar montado `noexec` en servidores y contenedores
-# endurecidos: se puede escribir pero no ejecutar. En vez de fiarse, se prueba
-# de verdad —se escribe un guion mínimo y se intenta correr— y se usa la primera
-# que funcione. $HOME casi siempre deja, aunque no sea RAM.
+# endurecidos: se puede escribir pero no ejecutar.
 carpeta_ejecutable() {
   for d in "${TMPDIR:-}" /tmp "$HOME" "$(pwd)"; do
     [ -n "$d" ] && [ -d "$d" ] && [ -w "$d" ] || continue
@@ -149,7 +151,6 @@ else
     "sin python3 ni perl, y ninguna carpeta temporal deja ejecutar (noexec). Instala python3 o perl, o monta /tmp con permiso de ejecución."
 
   ejecutable="$destino/lce_$$"
-  # Se amplía la limpieza a esta segunda copia.
   trap 'rm -f "$bin" "$ejecutable"' EXIT INT TERM
   cp "$bin" "$ejecutable" || error "no se pudo preparar el binario en $destino."
   rm -f "$bin"
