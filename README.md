@@ -69,6 +69,33 @@ Las descargas están en la
 [página de descargas](https://lince.mibaltoalex.com/descargar/) y en las
 [releases](../../releases) de este repositorio.
 
+## Desde la terminal
+
+Además de la aplicación con ventana, existe `lce`, la misma herramienta pero
+para la consola: enviar, recibir, reenvío de puertos, túneles por SSH... todo
+sin salir de la línea de órdenes.
+
+Para probarla en Linux sin instalar nada:
+
+```sh
+curl -fsSL https://lince.mibaltoalex.com/lce.sh | sh -s -- --version
+```
+
+Descarga el binario de tu arquitectura, lo ejecuta en memoria y no deja nada en
+el equipo. Lo que pongas después de `--` se le pasa tal cual, así que en vez de
+`--version` puedes escribir `add archivo.zip`, `get <código>` o lo que
+necesites. Si no tienes `curl`, `wget` sirve igual:
+
+```sh
+wget -qO- https://lince.mibaltoalex.com/lce.sh | sh -s -- --version
+```
+
+Funciona en x86_64, aarch64 y armv7, sobre distribuciones con glibc (Debian,
+Ubuntu, Fedora, Arch y compañía). No toca el PATH ni instala nada: es para una
+prueba rápida.
+
+Como en cualquier `curl | sh`, lo estás ejecutando directamente desde internet.
+
 ## Sobre este repositorio
 
 Aquí encontrarás la web pública del proyecto y sus versiones disponibles. **El código fuente de la aplicación no se distribuye**: <br>
