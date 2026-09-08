@@ -103,21 +103,50 @@ description: Términos de uso de LinceBlob.
         que le des.</p>
     </div>
 
-    <h2>1. Aceptación</h2>
+      <details class="indice" aria-label="Índice">
+        <summary>En esta página</summary>
+        <ul>
+          <li><a href="#aceptacion">1. Aceptación</a></li>
+          <li><a href="#que-es-linceblob">2. Qué es LinceBlob</a></li>
+          <li><a href="#licencia-de-uso">3. Licencia de uso</a></li>
+          <li><a href="#uso-responsable">4. Uso responsable</a></li>
+          <li><a href="#como-funcionan-los-tickets">5. Cómo funcionan los tickets</a></li>
+          <li><a href="#disponibilidad-de-los-servicios-auxiliares">6. Disponibilidad de los servicios auxiliares</a></li>
+          <li><a href="#actualizaciones">7. Actualizaciones</a></li>
+          <li><a href="#ausencia-de-garantias">8. Ausencia de garantías</a></li>
+          <li><a href="#limitacion-de-responsabilidad">9. Limitación de responsabilidad</a></li>
+          <li><a href="#cifrado-y-control-de-exportacion">10. Cifrado y control de exportación</a></li>
+          <li><a href="#servicios-de-terceros">11. Servicios de terceros</a></li>
+          <li><a href="#suspension-y-cese">12. Suspensión y cese</a></li>
+          <li><a href="#modificacion-de-los-terminos">13. Modificación de los términos</a></li>
+          <li><a href="#ley-aplicable-y-jurisdiccion">14. Ley aplicable y jurisdicción</a></li>
+          <li><a href="#contacto">15. Contacto</a></li>
+        </ul>
+      </details>
+      <script>
+        // Abierto de entrada solo si la pantalla da para ello. En el móvil,
+        // quince enlaces por delante empujan el texto media pantalla abajo.
+        (function () {
+          var i = document.currentScript.previousElementSibling;
+          if (window.matchMedia("(min-width: 44rem)").matches) i.open = true;
+        })();
+      </script>
+
+    <h2 id="aceptacion">1. Aceptación</h2>
     <p>Al descargar, instalar o usar LinceBlob (en adelante, «la aplicación») aceptas estos términos. Si no estás de
       acuerdo con ellos, no la instales ni la utilices.</p>
     <p>Estos términos se completan con la
       <a href="{{ "/privacidad/" | relative_url }}">Política de privacidad</a>, que forma parte
       de este acuerdo.</p>
 
-    <h2>2. Qué es LinceBlob</h2>
+    <h2 id="que-es-linceblob">2. Qué es LinceBlob</h2>
     <p>LinceBlob es una aplicación de escritorio y móvil que permite transferir ficheros y carpetas directamente entre
       dos dispositivos, sin subirlos a ningún servidor intermedio. Incluye además herramientas auxiliares: chat
       directo, mensajes por audio, transmisión por códigos QR, compresión y cifrado post-cuántico de ficheros, y reenvío de puertos
       en la versión de escritorio.</p>
     <p>El titular de la aplicación es <strong>Miguel J. Carmona (MIBALTOALEX)</strong>, con domicilio en España.</p>
 
-    <h2>3. Licencia de uso</h2>
+    <h2 id="licencia-de-uso">3. Licencia de uso</h2>
     <p>Se concede una licencia <strong>personal, gratuita, no exclusiva, intransferible y revocable</strong> para
       instalar y usar la aplicación en tus dispositivos, con fines particulares o profesionales.</p>
     <p>LinceBlob es <strong>software propietario</strong>. Su código fuente no se publica ni se distribuye, y todos los
@@ -139,7 +168,7 @@ description: Términos de uso de LinceBlob.
       ellos respecta, sobre este apartado. Puedes consultarlas en
       <a href="{{ "/licencias/" | relative_url }}">la página de licencias</a>.</p>
 
-    <h2>4. Uso responsable</h2>
+    <h2 id="uso-responsable">4. Uso responsable</h2>
     <p>Te comprometes a no utilizar la aplicación para:</p>
     <ul>
       <li>Transferir contenido que infrinja derechos de propiedad intelectual o industrial de terceros.</li>
@@ -153,7 +182,7 @@ description: Términos de uso de LinceBlob.
     <p>Eres el único responsable del contenido que envías, recibes o pones a disposición de otros, así como de contar
       con los permisos necesarios para hacerlo.</p>
 
-    <h2>5. Cómo funcionan los tickets</h2>
+    <h2 id="como-funcionan-los-tickets">5. Cómo funcionan los tickets</h2>
     <div class="lb-aviso">
       <p>Cuando compartes algo, la aplicación genera un <strong>ticket</strong>. Ese ticket es la única llave de acceso
         al contenido: <strong>cualquiera que lo obtenga puede descargarlo</strong> mientras el envío siga activo, sin
@@ -169,7 +198,7 @@ description: Términos de uso de LinceBlob.
         desarrollador</strong>. Esto tiene una consecuencia práctica importante: nadie puede recuperar por ti algo que
       hayas perdido, ni retirar algo que ya se haya descargado en el dispositivo de otra persona.</p>
 
-    <h2>6. Disponibilidad de los servicios auxiliares</h2>
+    <h2 id="disponibilidad-de-los-servicios-auxiliares">6. Disponibilidad de los servicios auxiliares</h2>
     <p>Para que dos dispositivos se encuentren, la aplicación se apoya en servicios de descubrimiento y, cuando la
       conexión directa no es posible, en servidores de retransmisión. Algunos son operados por el desarrollador y
       otros por terceros (la red pública del proyecto iroh).</p>
@@ -177,14 +206,14 @@ description: Términos de uso de LinceBlob.
       interrumpirse en cualquier momento, sin aviso previo y sin que ello genere derecho a indemnización. Una
       interrupción puede impedir iniciar transferencias nuevas.</p>
 
-    <h2>7. Actualizaciones</h2>
+    <h2 id="actualizaciones">7. Actualizaciones</h2>
     <p>La versión de escritorio puede comprobar e instalar actualizaciones automáticamente. Puedes desactivarlo en
       <em>Ajustes</em>. Las versiones antiguas pueden dejar de ser compatibles con las nuevas o con los servicios
       auxiliares, y no se garantiza su funcionamiento.</p>
     <p>En Android, las actualizaciones llegan a través de la tienda de aplicaciones o del paquete que instales
       manualmente.</p>
 
-    <h2>8. Ausencia de garantías</h2>
+    <h2 id="ausencia-de-garantias">8. Ausencia de garantías</h2>
     <p>La aplicación se proporciona <strong>«tal cual» y «según disponibilidad»</strong>, sin garantías de ningún tipo,
       ni expresas ni implícitas, incluidas las de comerciabilidad, idoneidad para un fin determinado o ausencia de
       errores.</p>
@@ -192,7 +221,7 @@ description: Términos de uso de LinceBlob.
       ni que los ficheros lleguen íntegros en toda circunstancia. Se recomienda conservar copia de todo lo que
       envíes.</p>
 
-    <h2>9. Limitación de responsabilidad</h2>
+    <h2 id="limitacion-de-responsabilidad">9. Limitación de responsabilidad</h2>
     <p>En la máxima medida permitida por la ley aplicable, el titular no será responsable de daños indirectos,
       incidentales o consecuentes, ni de la pérdida de datos, de beneficios o de oportunidades derivada del uso o de
       la imposibilidad de uso de la aplicación.</p>
@@ -202,32 +231,32 @@ description: Términos de uso de LinceBlob.
       derivada de dolo o negligencia grave, ni los derechos que la normativa de consumo reconozca de forma
       imperativa.</p>
 
-    <h2>10. Cifrado y control de exportación</h2>
+    <h2 id="cifrado-y-control-de-exportacion">10. Cifrado y control de exportación</h2>
     <p>La aplicación incorpora funciones de cifrado, incluido cifrado post-cuántico. Es tu responsabilidad comprobar
       que su uso, importación o exportación está permitido en tu país. En algunas jurisdicciones existen restricciones
       sobre software criptográfico.</p>
 
-    <h2>11. Servicios de terceros</h2>
+    <h2 id="servicios-de-terceros">11. Servicios de terceros</h2>
     <p>Además de las bibliotecas mencionadas en el apartado 3, la aplicación se apoya en servicios operados por
       terceros (la red pública de descubrimiento y retransmisión del proyecto iroh, las pasarelas de IPFS y los
       servidores a los que apuntes tú al descargar). El titular no responde de su funcionamiento, su disponibilidad ni
       sus políticas, que son las de cada proveedor.</p>
 
-    <h2>12. Suspensión y cese</h2>
+    <h2 id="suspension-y-cese">12. Suspensión y cese</h2>
     <p>Puedes dejar de usar la aplicación en cualquier momento desinstalándola. El titular puede interrumpir la
       distribución de la aplicación o el funcionamiento de sus servicios auxiliares, así como denegar el acceso a
       estos últimos ante un uso abusivo o contrario a estos términos.</p>
 
-    <h2>13. Modificación de los términos</h2>
+    <h2 id="modificacion-de-los-terminos">13. Modificación de los términos</h2>
     <p>Estos términos pueden actualizarse. La versión vigente será siempre la publicada en esta página, con su fecha
       de actualización. Si sigues usando la aplicación tras un cambio, se entenderá que aceptas la nueva versión.</p>
 
-    <h2>14. Ley aplicable y jurisdicción</h2>
+    <h2 id="ley-aplicable-y-jurisdiccion">14. Ley aplicable y jurisdicción</h2>
     <p>Estos términos se rigen por la legislación española. Para cualquier controversia, las partes se someten a los
       juzgados y tribunales que correspondan conforme a la normativa aplicable; si eres consumidor, conservas el
       derecho a acudir a los de tu domicilio.</p>
 
-    <h2>15. Contacto</h2>
+    <h2 id="contacto">15. Contacto</h2>
     <p>Miguel J. Carmona (MIBALTOALEX) ·
       <a href="mailto:info@mibaltoalex.com">info@mibaltoalex.com</a> ·
       <a href="https://me.mibaltoalex.com/" target="_blank" rel="noopener">me.mibaltoalex.com</a>

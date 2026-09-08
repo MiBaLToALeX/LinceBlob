@@ -23,6 +23,21 @@
 <body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
 
+    <!-- Barra de avance y vuelta arriba, en todas las páginas. Donde no hay
+       nada que recorrer no se ven: la barra se queda a cero y la huella no
+       llega a aparecer, porque solo sale al bajar. -->
+  <div class="avance" id="avance" aria-hidden="true"><span></span></div>
+  <a class="arriba" id="arriba" href="#contenido" aria-label="Volver arriba" title="Volver arriba">
+    <!-- La huella del lince, que es la marca. -->
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+      <ellipse cx="12" cy="16" rx="5" ry="4"/>
+      <ellipse cx="6.5" cy="10" rx="2.1" ry="2.6"/>
+      <ellipse cx="10" cy="6.5" rx="2.1" ry="2.8"/>
+      <ellipse cx="14" cy="6.5" rx="2.1" ry="2.8"/>
+      <ellipse cx="17.5" cy="10" rx="2.1" ry="2.6"/>
+    </svg>
+  </a>
+
   <header class="cabecera">
     <div class="contenedor cabecera-caja">
       <a class="marca" href="{{ '/' | relative_url }}">
@@ -72,6 +87,44 @@
       LinceBlob es software propietario: se distribuyen los binarios, no el código.
     </p>
   </footer>
+
+    <script>
+    // Dos cosas pequeñas y sin dependencias: la barra de arriba y la huella.
+    (function () {
+      var barra = document.querySelector("#avance span");
+      var arriba = document.getElementById("arriba");
+      if (!barra || !arriba) return;
+
+      var pendiente = false;
+      function pintar() {
+        pendiente = false;
+        var alto = document.documentElement.scrollHeight - window.innerHeight;
+        // Una página que cabe entera en la pantalla no tiene avance que enseñar.
+        var avance = alto > 0 ? window.scrollY / alto : 0;
+        barra.style.transform = "scaleX(" + avance + ")";
+        // La huella aparece cuando ya hay algo a lo que volver.
+        arriba.classList.toggle("visible", window.scrollY > 400);
+      }
+
+      // Por `requestAnimationFrame`: el evento de scroll se dispara decenas de
+      // veces por segundo y tocar el estilo en cada uno hace trabajar de más al
+      // navegador justo mientras la persona se desplaza.
+      addEventListener("scroll", function () {
+        if (pendiente) return;
+        pendiente = true;
+        requestAnimationFrame(pintar);
+      }, { passive: true });
+      addEventListener("resize", pintar, { passive: true });
+      pintar();
+
+      arriba.addEventListener("click", function (e) {
+        e.preventDefault();
+        // Suave, salvo para quien haya pedido menos movimiento en su sistema.
+        var quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        scrollTo({ top: 0, behavior: quieto ? "auto" : "smooth" });
+      });
+    })();
+  </script>
 </body>
 
 </html>

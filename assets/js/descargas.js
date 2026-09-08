@@ -81,7 +81,7 @@
       /armv7|armhf/i.test(nombre) ? "ARMv7" :
       /x86[_-]?64|amd64|x64/i.test(nombre) ? "x86_64" :
       // Un APK sin arquitectura en el nombre es el universal, que vale para
-      // cualquier aparato. Decirlo evita la duda de cuál bajarse.
+      // cualquier dispositivo. Decirlo evita la duda de cuál bajarse.
       /\.apk$/i.test(nombre) ? "universal" : "";
     if (formato && arquitectura) return formato + " · " + arquitectura;
     return formato || arquitectura || nombre;
@@ -220,9 +220,9 @@
     // Las herramientas van debajo y con su propio encabezado: quien entra a
     // descargar quiere la aplicación, y estas son para quien las busca.
     const bloqueHerramientas = herramientas.length
-      ? '<h2 class="titulo-herramientas">Herramientas de línea de comandos</h2>' +
-        '<p class="nota-herramientas">Las herramientas de la aplicación, ' +
-        "disponibles de forma independiente para la terminal o el servidor..</p>" +
+      ? '<h2 class="titulo-herramientas">Herramientas de línea de órdenes</h2>' +
+        '<p class="nota-herramientas">Los mismos motores que usa la aplicación, ' +
+        "sueltos, para usarlos desde la terminal o en un servidor.</p>" +
         '<div class="descargas">' + herramientas.join("") + "</div>"
       : "";
 

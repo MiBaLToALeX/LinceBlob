@@ -113,7 +113,7 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
     <h1>Política de privacidad de LinceBlob</h1>
     <p class="lb-fecha">
       Aplicable a las versiones de escritorio (Windows y Linux) y de Android, incluida Android&nbsp;TV.<br />
-      Última actualización: 24 de agosto de 2026.
+      Última actualización: 8 de septiembre de 2026.
     </p>
 
     <div class="lb-resumen">
@@ -123,12 +123,38 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
         técnicos mínimos para que los dos extremos se encuentren, que se detallan más abajo.</p>
     </div>
 
-    <h2>1. Quién es el responsable</h2>
+      <details class="indice" aria-label="Índice">
+        <summary>En esta página</summary>
+        <ul>
+          <li><a href="#quien-es-el-responsable">1. Quién es el responsable</a></li>
+          <li><a href="#que-no-hace-linceblob">2. Qué NO hace LinceBlob</a></li>
+          <li><a href="#datos-que-se-guardan-en-tu-dispositivo">3. Datos que se guardan en tu dispositivo</a></li>
+          <li><a href="#que-sale-de-tu-dispositivo-y-hacia-donde">4. Qué sale de tu dispositivo y hacia dónde</a></li>
+          <li><a href="#camara-y-microfono">5. Cámara y micrófono</a></li>
+          <li><a href="#permisos-en-android">6. Permisos en Android</a></li>
+          <li><a href="#base-juridica-y-conservacion">7. Base jurídica y conservación</a></li>
+          <li><a href="#tus-derechos">8. Tus derechos</a></li>
+          <li><a href="#menores">9. Menores</a></li>
+          <li><a href="#seguridad">10. Seguridad</a></li>
+          <li><a href="#cambios-en-esta-politica">11. Cambios en esta política</a></li>
+          <li><a href="#contacto">12. Contacto</a></li>
+        </ul>
+      </details>
+      <script>
+        // Abierto de entrada solo si la pantalla da para ello. En el móvil,
+        // quince enlaces por delante empujan el texto media pantalla abajo.
+        (function () {
+          var i = document.currentScript.previousElementSibling;
+          if (window.matchMedia("(min-width: 44rem)").matches) i.open = true;
+        })();
+      </script>
+
+    <h2 id="quien-es-el-responsable">1. Quién es el responsable</h2>
     <p>El responsable del tratamiento es <strong>Miguel J. Carmona (MIBALTOALEX)</strong>, con domicilio en España.</p>
     <p>Puedes contactar en <a href="mailto:info@mibaltoalex.com">info@mibaltoalex.com</a> para cualquier cuestión
       relacionada con esta política o con el ejercicio de tus derechos.</p>
 
-    <h2>2. Qué NO hace LinceBlob</h2>
+    <h2 id="que-no-hace-linceblob">2. Qué NO hace LinceBlob</h2>
     <p>Conviene dejarlo claro antes de entrar en detalle, porque es lo que diferencia a esta aplicación de la mayoría:
     </p>
     <ul>
@@ -141,7 +167,7 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
       <li>No se venden ni ceden datos a terceros, porque no se recogen.</li>
     </ul>
 
-    <h2>3. Datos que se guardan en tu dispositivo</h2>
+    <h2 id="datos-que-se-guardan-en-tu-dispositivo">3. Datos que se guardan en tu dispositivo</h2>
     <p>Toda esta información se queda <strong>en tu equipo</strong>. No se sincroniza, no se sube y nadie más que tú
       tiene acceso a ella.</p>
 
@@ -167,6 +193,28 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
           <td>Los avisos de la propia aplicación, para poder consultarlos más tarde.</td>
         </tr>
         <tr>
+          <td>Contactos</td>
+          <td>El identificador de los dispositivos que has guardado y el nombre que tú les has puesto, para poder
+            enviarles sin volver a intercambiar el código.</td>
+        </tr>
+        <tr>
+          <td>Notas</td>
+          <td>Los textos que guardas para reutilizarlos en un código QR, en la etiqueta NFC o en un mensaje.</td>
+        </tr>
+        <tr>
+          <td>Conexiones SSH (PRO)</td>
+          <td>Usuario, destino y opciones de cada conexión guardada. <strong>Las contraseñas no van aquí</strong>: se
+            guardan en el almacén de credenciales del sistema operativo —el llavero en escritorio, el Keystore en
+            Android— y nunca en el almacenamiento de la aplicación. Donde no hay un almacén utilizable, la aplicación
+            no ofrece guardarlas.</td>
+        </tr>
+        <tr>
+          <td>Informe de errores</td>
+          <td>Los últimos cincuenta fallos, con su hora y su mensaje técnico, para poder diagnosticar un problema.
+            Se limpia de rutas, enlaces, direcciones, tickets y claves <em>antes</em> de guardarse. Se vacía desde
+            Ajustes → Otros.</td>
+        </tr>
+        <tr>
           <td>Identidad del dispositivo</td>
           <td>Un par de claves criptográficas que identifica a tu equipo dentro de la red de transferencia. Es un
             identificador técnico, no está asociado a tu persona.</td>
@@ -189,7 +237,7 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
       aplicación elimina todo lo anterior, salvo los ficheros que hayas descargado y las claves que hayas guardado
       fuera de la carpeta de la aplicación.</p>
 
-    <h2>4. Qué sale de tu dispositivo y hacia dónde</h2>
+    <h2 id="que-sale-de-tu-dispositivo-y-hacia-donde">4. Qué sale de tu dispositivo y hacia dónde</h2>
 
     <h3>4.1. La transferencia de ficheros</h3>
     <p>LinceBlob transfiere <strong>directamente entre los dos dispositivos</strong> (punto a punto), usando la
@@ -224,11 +272,23 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
       (<code>ipfs.io</code>, <code>dweb.link</code>, <code>4everland.io</code>, <code>dget.top</code>) hasta que una
       responda. Estos servicios son de terceros y se rigen por sus propias políticas de privacidad.</p>
 
-    <h3>4.5. Enlaces externos</h3>
+    <h3>4.5. El informe de errores</h3>
+    <p>
+      El informe de errores <strong>no se envía nunca solo</strong>. No hay telemetría, ni envío automático de
+      fallos, ni nada que salga de tu equipo sin que tú lo pidas: el botón lo copia al portapapeles y a partir de
+      ahí decides tú si lo mandas y a quién.
+    </p>
+    <p>
+      Antes de guardarse, cada fallo pasa por un filtro que quita las rutas de ficheros, los enlaces, las
+      direcciones IP, los correos, los tickets y cualquier cadena que parezca una clave. Lo que queda es el mensaje
+      técnico del error. Aun así, el informe se copia y no se envía precisamente para que puedas leerlo antes.
+    </p>
+
+    <h3>4.6. Enlaces externos</h3>
     <p>Los botones de apoyo al proyecto y de soporte abren PayPal y Telegram en tu navegador o aplicación
       correspondiente. Solo ocurre si los pulsas, y a partir de ahí se aplican las políticas de esos servicios.</p>
 
-    <h2>5. Cámara y micrófono</h2>
+    <h2 id="camara-y-microfono">5. Cámara y micrófono</h2>
     <p>Ambos se usan <strong>exclusivamente dentro del dispositivo</strong> y solo mientras la función correspondiente
       está abierta:</p>
     <ul>
@@ -238,7 +298,7 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
         cercanos. El audio se procesa en tiempo real y se descarta. No se graba ni se transmite por la red.</li>
     </ul>
 
-    <h2>6. Permisos en Android</h2>
+    <h2 id="permisos-en-android">6. Permisos en Android</h2>
     <table>
       <thead>
         <tr>
@@ -278,7 +338,7 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
     <p>Los permisos de cámara y micrófono se piden en el momento de usar esas funciones, no al instalar, y puedes
       revocarlos cuando quieras desde los ajustes de Android.</p>
 
-    <h2>7. Base jurídica y conservación</h2>
+    <h2 id="base-juridica-y-conservacion">7. Base jurídica y conservación</h2>
     <p>El tratamiento se limita a los datos técnicos descritos en el apartado 4, cuya base jurídica es la
       <strong>ejecución del servicio que solicitas</strong> (artículo 6.1.b del RGPD): sin publicar y resolver la
       dirección de red no es posible conectar dos dispositivos.</p>
@@ -287,7 +347,7 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
       cuando existen, se conservan el tiempo mínimo necesario para su operación y diagnóstico. Todo lo demás vive
       únicamente en tu dispositivo y lo controlas tú.</p>
 
-    <h2>8. Tus derechos</h2>
+    <h2 id="tus-derechos">8. Tus derechos</h2>
     <p>Puedes ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad
       escribiendo a <a href="mailto:info@mibaltoalex.com">info@mibaltoalex.com</a>.</p>
     <p>Ten en cuenta que, al no existir cuentas ni identificadores personales, en la práctica no hay un perfil tuyo que
@@ -295,12 +355,12 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
       eliminarlos tú directamente. Si consideras que tus derechos no han sido atendidos, puedes reclamar ante la
       <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
 
-    <h2>9. Menores</h2>
+    <h2 id="menores">9. Menores</h2>
     <p>LinceBlob no está dirigida específicamente a menores ni recoge datos de ellos. Al no haber registro, la
       aplicación no puede conocer la edad de quien la usa. Se recomienda supervisión parental, como con cualquier
       herramienta que permite intercambiar ficheros con terceros.</p>
 
-    <h2>10. Seguridad</h2>
+    <h2 id="seguridad">10. Seguridad</h2>
     <p>Las transferencias van cifradas de extremo a extremo. Además, la aplicación incluye un modo de cifrado
       post-cuántico opcional para proteger los ficheros antes incluso de enviarlos.</p>
     <div class="lb-aviso">
@@ -309,12 +369,12 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
         contraseña: mándalo por un canal en el que confíes y no lo publiques.</p>
     </div>
 
-    <h2>11. Cambios en esta política</h2>
+    <h2 id="cambios-en-esta-politica">11. Cambios en esta política</h2>
     <p>Si la aplicación cambia en algo que afecte a esta política, se actualizará este documento y se modificará la
       fecha del encabezado. Los cambios sustanciales se anunciarán además en las notas de la versión correspondiente.
     </p>
 
-    <h2>12. Contacto</h2>
+    <h2 id="contacto">12. Contacto</h2>
     <p>Miguel J. Carmona (MIBALTOALEX) ·
       <a href="mailto:info@mibaltoalex.com">info@mibaltoalex.com</a> ·
       <a href="https://me.mibaltoalex.com/" target="_blank" rel="noopener">me.mibaltoalex.com</a>

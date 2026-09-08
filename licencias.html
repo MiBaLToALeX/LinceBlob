@@ -9,7 +9,23 @@ description: Licencia de LinceBlob y componentes de terceros que utiliza.
   <h1>Licencias</h1>
   <p class="fecha">Última revisión: {{ 'now' | date: "%-d de %B de %Y" }}</p>
 
-  <h2>LinceBlob</h2>
+      <details class="indice" aria-label="Índice">
+        <summary>En esta página</summary>
+        <ul>
+          <li><a href="#linceblob">LinceBlob</a></li>
+          <li><a href="#componentes-de-terceros">Componentes de terceros</a></li>
+          <li><a href="#marcas">Marcas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </details>
+      <script>
+        (function () {
+          var i = document.currentScript.previousElementSibling;
+          if (window.matchMedia("(min-width: 44rem)").matches) i.open = true;
+        })();
+      </script>
+
+  <h2 id="linceblob">LinceBlob</h2>
   <p>
     LinceBlob es <strong>software propietario</strong>. Se distribuyen los
     programas ya compilados, no el código fuente. La licencia de uso está en
@@ -22,7 +38,7 @@ description: Licencia de LinceBlob y componentes de terceros que utiliza.
     venderlo como si fuera tuyo.
   </p>
 
-  <h2>Componentes de terceros</h2>
+  <h2 id="componentes-de-terceros">Componentes de terceros</h2>
   <p>
     LinceBlob se apoya en proyectos libres, cada uno con su licencia. Estas
     son las piezas principales:
@@ -102,14 +118,14 @@ description: Licencia de LinceBlob y componentes de terceros que utiliza.
     <a href="{{ '/licencias/terceros/' | relative_url }}">la lista completa</a>.
   </p>
 
-  <h2>Marcas</h2>
+  <h2 id="marcas">Marcas</h2>
   <p>
     «LinceBlob» y su logotipo son de {{ site.autor }}. Los demás nombres y
     logotipos que aparezcan pertenecen a sus respectivos dueños y se citan solo
     para identificar los componentes.
   </p>
 
-  <h2>Contacto</h2>
+  <h2 id="contacto">Contacto</h2>
   <p>
     Para cualquier duda sobre licencias, escribe a
     <a href="mailto:{{ site.correo }}">{{ site.correo }}</a>.

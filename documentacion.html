@@ -9,7 +9,28 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
   <h1>Documentación</h1>
   <p class="fecha">Guía de uso para Windows, Linux y Android.</p>
 
-  <h2>Lo básico</h2>
+      <details class="indice" aria-label="Índice">
+        <summary>En esta página</summary>
+        <ul>
+          <li><a href="#lo-basico">Lo básico</a></li>
+          <li><a href="#enviar">Enviar</a></li>
+          <li><a href="#recibir">Recibir</a></li>
+          <li><a href="#dispositivos-cercanos">Dispositivos cercanos</a></li>
+          <li><a href="#reenvio-de-puertos">Reenvío de puertos</a></li>
+          <li><a href="#confirmar-cada-descarga">Confirmar cada descarga</a></li>
+          <li><a href="#ajustes">Ajustes</a></li>
+          <li><a href="#cuando-algo-no-va">Cuando algo no va</a></li>
+          <li><a href="#si-sigues-atascado">Si sigues atascado</a></li>
+        </ul>
+      </details>
+      <script>
+        (function () {
+          var i = document.currentScript.previousElementSibling;
+          if (window.matchMedia("(min-width: 44rem)").matches) i.open = true;
+        })();
+      </script>
+
+  <h2 id="lo-basico">Lo básico</h2>
   <p>
     Quien envía obtiene un código. Quien recibe lo pega. Con eso ya funciona
     todo lo demás.
@@ -21,7 +42,7 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     deja de servir en cuanto quien envía cierra la aplicación.
   </p>
 
-  <h2>Enviar</h2>
+  <h2 id="enviar">Enviar</h2>
   <p>
     Arrastra el archivo o la carpeta a la ventana de LinceBlob. También puedes
     pulsar <em>Enviar</em> y buscarlo. Cuando termine de prepararse aparece el
@@ -34,7 +55,7 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     el código deja de valer y quien esté descargando se queda a medias.
   </p>
 
-  <h2>Recibir</h2>
+  <h2 id="recibir">Recibir</h2>
   <p>
     Pulsa <em>Recibir</em> y pega el código. En el móvil tienes el atajo de la
     cámara: escanea el QR y se abre LinceBlob con la descarga ya en marcha.
@@ -46,7 +67,7 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     cancelas.
   </p>
 
-  <h2>Dispositivos cercanos</h2>
+  <h2 id="dispositivos-cercanos">Dispositivos cercanos</h2>
   <p>
     Cuando los dos dispositivos están en la misma red, pasarse un código es un
     rodeo innecesario. Con esto ves el nombre del otro equipo, lo tocas, y a la
@@ -70,7 +91,19 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     se hablen entre ellos. En ese caso el código de siempre sigue funcionando.
   </p>
 
-  <h2>Reenvío de puertos</h2>
+  <h3>Emparejar acercando los móviles</h3>
+  <p>
+    Para enviarle a alguien que no está en tu red necesitas su identificador, y
+    son sesenta y cuatro caracteres. Con NFC te lo ahorras: en la herramienta
+    NFC pulsas <strong>Poner mi identidad</strong> y la otra persona acerca su
+    móvil para leerla.
+  </p>
+  <p>
+    Luego hacedlo al revés, para que tú tengas la suya. Un móvil no puede leer y
+    hacer de etiqueta a la vez, así que va de uno en uno.
+  </p>
+
+  <h2 id="reenvio-de-puertos">Reenvío de puertos</h2>
   <p>
     Sirve para llegar a algo que corre en otro equipo como si estuvieras
     sentado delante: un panel de administración, un servidor de pruebas, una
@@ -89,7 +122,7 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     impide que el sistema congele la aplicación y corte la conexión.
   </p>
 
-  <h2>Confirmar cada descarga</h2>
+  <h2 id="confirmar-cada-descarga">Confirmar cada descarga</h2>
   <p>
     En <strong>Ajustes → Seguridad</strong> puedes activar <em>Confirmar
     descargas</em>. A partir de ahí, cada vez que alguien intente descargar algo
@@ -102,7 +135,7 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     basta.
   </p>
 
-  <h2>Ajustes</h2>
+  <h2 id="ajustes">Ajustes</h2>
   <p>Estos son los que más se tocan:</p>
   <div class="tabla-ancha">
     <table>
@@ -138,13 +171,47 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     </table>
   </div>
 
-  <h3>Atajos</h3>
+  <h3>Atajos de teclado</h3>
   <p>
-    <code>Ctrl</code> + <code>K</code> abre el buscador de herramientas.
-    <code>Esc</code> cierra el panel o la ventana que tengas delante.
+    <code>F1</code> abre la lista completa. Estos son los que más se usan:
+  </p>
+  <ul>
+    <li><code>Ctrl</code> + <code>1</code> y <code>Ctrl</code> + <code>2</code>:
+      ir a añadir y a recibir. <code>Ctrl</code> + <code>0</code> vuelve al inicio</li>
+    <li><code>Ctrl</code> + <code>K</code>: buscar en la aplicación</li>
+    <li><code>Ctrl</code> + <code>,</code>: configuración</li>
+    <li><code>Ctrl</code> + <code>M</code>: la pantalla «Todo», con las herramientas</li>
+    <li><code>Ctrl</code> + <code>H</code>: el historial</li>
+    <li><code>Esc</code>: cierra el panel o la ventana que tengas delante</li>
+  </ul>
+  <p>
+    Las herramientas van con <code>Ctrl</code> + <code>Mayús</code> y su inicial:
+    contactos, chat, audio, compresor. Ninguno funciona mientras escribes en un
+    campo.
   </p>
 
-  <h2>Cuando algo no va</h2>
+  <h3>Avisos y vibración</h3>
+  <p>
+    LinceBlob te avisa cuando termina una transferencia, llega algo o falla,
+    aunque tengas la aplicación de fondo: sale en las notificaciones de Windows
+    o en la barra de Android. En el móvil además vibra.
+  </p>
+  <p>
+    Con la aplicación delante no salta nada, que para eso ya lo ves en pantalla.
+    Los dos se apagan en Ajustes → Notificaciones.
+  </p>
+
+  <h3>Si algo falla</h3>
+  <p>
+    Los errores llevan un código, como <code>E-4F2A</code>. El detalle está en
+    Ajustes → Otros, en el informe de errores, con la hora de cada uno.
+  </p>
+  <p>
+    El informe se copia con un botón y lo mandas tú. No se envía nada solo, y de
+    lo que se guarda se quitan antes las rutas, los enlaces y las claves.
+  </p>
+
+  <h2 id="cuando-algo-no-va">Cuando algo no va</h2>
 
   <h3>La conexión no llega a establecerse</h3>
   <p>
@@ -172,13 +239,16 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     el aislamiento de clientes.
   </p>
 
-  <h2>Si sigues atascado</h2>
+  <h2 id="si-sigues-atascado">Si sigues atascado</h2>
   <p>
     Abre una incidencia en
-    <a href="https://github.com/{{ site.repositorio }}/issues">GitHub</a> o
-    escribe por Telegram a
-    <a href="https://t.me/{{ site.telegram }}">@{{ site.telegram }}</a>. Para
+    <a href="https://github.com/{{ site.repositorio }}/issues">GitHub</a>. Para
     que sea más fácil ayudarte, cuenta qué sistema usas, qué versión de
     LinceBlob tienes y qué estabas haciendo cuando falló.
+  </p>
+  <p>
+    Desde la propia aplicación hay un atajo: en <strong>Solución de
+    problemas</strong> escribes qué ha pasado y se abre la incidencia con la
+    versión y el sistema ya rellenados.
   </p>
 </div>

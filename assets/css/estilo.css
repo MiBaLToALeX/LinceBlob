@@ -476,3 +476,138 @@ pre code { background: none; border: 0; padding: 0; }
   color: var(--texto-2);
   margin: 0;
 }
+
+
+/* Índice de las páginas legales.
+   Son textos largos y con secciones numeradas: sin esto hay que bajar a ojo
+   buscando el apartado que interesa. Los enlaces llevan a un ancla con nombre
+   —#datos-que-se-guardan y no #s3—, así que se puede pasar el enlace de una
+   sección concreta y sigue valiendo aunque mañana se renumere.
+
+   Se pliega. En el HTML va cerrado, que es lo que hay que ver en una pantalla
+   estrecha y lo que se ve si no hay JavaScript; un script de dos líneas lo abre
+   cuando la pantalla da para ello. */
+.indice {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: .75rem 1.25rem;
+  margin: 0 0 2rem;
+  background: var(--fondo-2);
+  color: var(--texto);
+}
+
+.indice > summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .95rem;
+  padding: .25rem 0;
+}
+
+.indice[open] > summary {
+  margin-bottom: .5rem;
+}
+
+.indice ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 2rem;
+}
+
+.indice li {
+  margin: 0 0 .35rem;
+  break-inside: avoid;
+}
+
+.indice a {
+  font-size: .9rem;
+  text-decoration: none;
+}
+
+.indice a:hover {
+  text-decoration: underline;
+}
+
+/* En una columna cuando no caben dos. */
+@media (max-width: 44rem) {
+  .indice ul { columns: 1; }
+}
+
+
+/* Avance de lectura y vuelta arriba, en las páginas largas.
+   Los colores salen de las variables del tema, así que valen en claro y en
+   oscuro sin escribir nada dos veces. */
+.avance {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 60;
+  pointer-events: none;
+}
+
+/* Se mueve con `transform` y no cambiando el ancho: el navegador lo resuelve
+   sin rehacer el diseño de la página, que es lo que hay que evitar cuando algo
+   se actualiza en cada píxel de desplazamiento. */
+.avance span {
+  display: block;
+  height: 100%;
+  background: var(--verde);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.arriba {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--borde);
+  background: var(--fondo);
+  color: var(--verde);
+  box-shadow: var(--sombra);
+  /* Fuera de la vista hasta que hay algo a lo que volver. `visibility` además
+     de la opacidad: si no, seguiría siendo pulsable estando invisible. */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(.5rem);
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+
+.arriba.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.arriba:hover {
+  color: var(--verde-oscuro);
+  border-color: var(--verde);
+}
+
+.arriba svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+/* En pantallas estrechas, algo más pequeña y pegada a la esquina: ahí el texto
+   ocupa todo el ancho y un botón grande se come una línea de lectura. */
+@media (max-width: 44rem) {
+  .arriba {
+    right: .75rem;
+    bottom: .75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arriba { transition: none; }
+}
