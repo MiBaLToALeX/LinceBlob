@@ -13,12 +13,13 @@
 </br>Gratis, rápido, seguro (cifrado E2E), sin cuentas, sin rastreo, basado en iroh
 </p>
 
-<p align="center"><strong>Idiomas:</strong> Español | English | Português | Français | Italiano | Deutsch </p>
+<p align="center"><strong>Idiomas:</strong> Español | English | Português | Français | Italiano | Deutsch</p>
 
 <p align="center">
   <a href="https://lince.mibaltoalex.com/descargar/">Descargar</a> ·
   <a href="https://lince.mibaltoalex.com/documentacion/">Documentación</a> ·
-  <a href="https://lince.mibaltoalex.com/">Web</a>
+  <a href="https://lince.mibaltoalex.com/">Web</a> ·
+  <a href="../../releases/latest">Novedades</a>
 </p>
 
 ---
@@ -31,6 +32,10 @@ sitio que no controlas.
 LinceBlob hace el viaje directo. Tu equipo se conecta con el otro y el archivo
 pasa de uno a otro, cifrado, sin copia intermedia. No hay cuentas, no hay
 registro y no hay límite de tamaño.
+
+Eso es lo principal. Y cuando no hay red por medio, trae además otras vías para
+intercambiar información: códigos QR encadenados, audio, dispositivos cercanos
+y, en Android, hacer de etiqueta NFC.
 
 ## Cómo funciona
 
@@ -51,11 +56,17 @@ aparece el nombre del otro equipo, lo tocas y allí sale el aviso.
   una lista.
 - **Código QR.** Del ordenador al móvil sin teclear nada: enseñas el QR, lo
   escaneas y la descarga arranca sola.
+- **Etiqueta NFC** (Android). El móvil hace de etiqueta: otro dispositivo lee lo
+  que hayas puesto con solo acercarse, y no necesita tener LinceBlob. También
+  sirve para guardaros como contacto juntando los teléfonos.
 - **Reenvío de puertos.** Publica un servicio de tu equipo y ábrelo desde
   otro sitio como si estuvieras en su misma red.
 - **Cifrado post-cuántico.** Para lo que tenga que seguir siendo secreto
   dentro de muchos años.
-- **Cinco idiomas**: español, inglés, portugués, francés e italiano.
+- **Lo que envías no se corta.** Puedes moverte por la aplicación mientras
+  transfieres; lo que esté en marcha se ve desde cualquier pantalla y vuelves a
+  ello de un toque.
+- **Seis idiomas**: español, inglés, portugués, francés, italiano y alemán.
 
 ## Dónde funciona
 
@@ -71,9 +82,9 @@ Las descargas están en la
 
 ## Desde la terminal
 
-Además de la aplicación con ventana, existe `lce`, la misma herramienta pero
-para la consola: enviar, recibir, reenvío de puertos, túneles por SSH... todo
-sin salir de la línea de órdenes.
+`lce` es LinceBlob para la terminal: enviar, recibir, reenvío de puertos,
+túneles SSH... lo mismo que la aplicación, pero desde la consola y sin
+ventanas.
 
 Para probarla en Linux sin instalar nada:
 
@@ -111,11 +122,16 @@ LinceBlob es software propietario; únicamente se proporcionan los programas ya 
 sistema usas, qué versión de LinceBlob y qué estabas haciendo. También puedes
 escribir por Telegram a [@shellord_bot](https://t.me/shellord_bot).
 
+Si el fallo dejó un aviso con un código (`E-4F2A` y parecidos), añádelo. En
+**Ajustes → Otros** está el informe de errores, que reúne los últimos con su
+hora y su mensaje técnico; se copia con un botón. Va sin rutas, enlaces,
+direcciones ni claves, así que se puede pegar tal cual.
+
 ## Créditos
 
 Creado por [Miguel J. Carmona (MIBALTOALEX)](https://me.mibaltoalex.com/).
 
 
 [badge-website]: https://img.shields.io/badge/website-lince.mibaltoalex.com-green
-[badge-version]: https://img.shields.io/badge/version-2.25.0-blue
+[badge-version]: https://img.shields.io/badge/version-3.0.0-blue
 [badge-platforms]: https://img.shields.io/badge/platforms-Windows%2C%20Linux%2C%20Android%2C%20CLI%20-green
