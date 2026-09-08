@@ -109,7 +109,7 @@
   }
 
   // En la misma release conviven tres programas distintos: la aplicación y las
-  // dos herramientas de línea de órdenes. Clasificar solo por extensión los
+  // dos herramientas de línea de comandos. Clasificar solo por extensión los
   // mezclaba, y en Windows salían tres «exe · x86_64» seguidos sin forma de
   // saber cuál era cuál.
   //
@@ -133,7 +133,7 @@
     },
   ];
 
-  /** Sistema al que pertenece un binario de línea de órdenes. */
+  /** Sistema al que pertenece un binario de línea de comandos. */
   function sistemaDe(nombre) {
     if (/\.exe$/i.test(nombre) || /windows|msvc/i.test(nombre)) return "Windows";
     if (/darwin|apple|macos/i.test(nombre)) return "macOS";
@@ -220,9 +220,9 @@
     // Las herramientas van debajo y con su propio encabezado: quien entra a
     // descargar quiere la aplicación, y estas son para quien las busca.
     const bloqueHerramientas = herramientas.length
-      ? '<h2 class="titulo-herramientas">Herramientas de línea de órdenes</h2>' +
-        '<p class="nota-herramientas">Los mismos motores que usa la aplicación, ' +
-        "sueltos, para usarlos desde la terminal o en un servidor.</p>" +
+      ? '<h2 class="titulo-herramientas">Herramientas de línea de comandos</h2>' +
+        '<p class="nota-herramientas">Las herramientas de la aplicación, ' +
+        "disponibles de forma independiente para la terminal o el servidor.</p>" +
         '<div class="descargas">' + herramientas.join("") + "</div>"
       : "";
 
