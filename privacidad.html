@@ -272,7 +272,24 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
       (<code>ipfs.io</code>, <code>dweb.link</code>, <code>4everland.io</code>, <code>dget.top</code>) hasta que una
       responda. Estos servicios son de terceros y se rigen por sus propias políticas de privacidad.</p>
 
-    <h3>4.5. El informe de errores</h3>
+    <h3>4.5. Reenvío de conexiones y navegación a través de otro equipo</h3>
+    <p>
+      El reenvío de conexiones abre un túnel cifrado entre dos dispositivos que
+      se han pasado un código. Cuando alguien presta su conexión a internet para
+      que otro navegue con ella, el tráfico de quien navega sale por la línea del
+      que presta y con <strong>su</strong> dirección IP: para las webs que se
+      visiten, quien las visita es el que presta la conexión, y en sus registros
+      queda esa IP. Quien presta debería tenerlo claro antes de compartir el
+      código.
+    </p>
+    <p>
+      LinceBlob transporta esas conexiones pero no las abre: el cifrado va de
+      extremo a extremo entre el navegador y la web, y ni la aplicación ni quien
+      presta la conexión pueden leer lo que viaja por dentro. Nada de esto pasa
+      por servidores nuestros, y no se guarda registro de a dónde navega nadie.
+    </p>
+
+    <h3>4.6. El informe de errores</h3>
     <p>
       El informe de errores <strong>no se envía nunca solo</strong>. No hay telemetría, ni envío automático de
       fallos, ni nada que salga de tu equipo sin que tú lo pidas: el botón lo copia al portapapeles y a partir de
@@ -284,7 +301,7 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
       técnico del error. Aun así, el informe se copia y no se envía precisamente para que puedas leerlo antes.
     </p>
 
-    <h3>4.6. Enlaces externos</h3>
+    <h3>4.7. Enlaces externos</h3>
     <p>Los botones de apoyo al proyecto y de soporte abren PayPal y Telegram en tu navegador o aplicación
       correspondiente. Solo ocurre si los pulsas, y a partir de ahí se aplican las políticas de esos servicios.</p>
 

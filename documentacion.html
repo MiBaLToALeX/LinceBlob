@@ -2,7 +2,7 @@
 layout: default
 title: Documentación
 permalink: /documentacion/
-description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos cercanos, reenvío de puertos y ajustes.
+description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos cercanos, reenvío de conexiones y ajustes.
 ---
 
 <div class="documento">
@@ -16,7 +16,7 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
           <li><a href="#enviar">Enviar</a></li>
           <li><a href="#recibir">Recibir</a></li>
           <li><a href="#dispositivos-cercanos">Dispositivos cercanos</a></li>
-          <li><a href="#reenvio-de-puertos">Reenvío de puertos</a></li>
+          <li><a href="#reenvio-de-conexiones">Reenvío de conexiones</a></li>
           <li><a href="#confirmar-cada-descarga">Confirmar cada descarga</a></li>
           <li><a href="#ajustes">Ajustes</a></li>
           <li><a href="#cuando-algo-no-va">Cuando algo no va</a></li>
@@ -103,23 +103,51 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     hacer de etiqueta a la vez, así que va de uno en uno.
   </p>
 
-  <h2 id="reenvio-de-puertos">Reenvío de puertos</h2>
+  <h2 id="reenvio-de-conexiones">Reenvío de conexiones</h2>
   <p>
     Sirve para llegar a algo que corre en otro equipo como si estuvieras
     sentado delante: un panel de administración, un servidor de pruebas, una
     cámara.
   </p>
   <p>
-    En el equipo donde está el servicio, abre <em>Reenviar puertos</em>, indica
-    la dirección y el puerto (por ejemplo <code>127.0.0.1:8080</code>) y
+    En el equipo donde está el servicio, abre <em>Reenvío de conexiones</em>,
+    indica la dirección y el puerto (por ejemplo <code>127.0.0.1:8080</code>) y
     comparte el código que sale. En el otro equipo pega ese código, elige un
     puerto local y abre <code>http://127.0.0.1:</code> seguido de ese puerto en
     el navegador.
   </p>
   <p>
+    Se pueden publicar varios servicios a la vez, cada uno con su protocolo. Al
+    lado de cada dirección hay un botón que dice <strong>TCP</strong> o
+    <strong>UDP</strong>: casi todo va por TCP; el DNS, los juegos y la voz
+    suelen ir por UDP. El protocolo es parte de lo que autorizas, así que
+    publicar el puerto de una web no abre además su UDP, que sería otro servicio
+    distinto.
+  </p>
+  <p>
     En Android la conexión aguanta aunque salgas de la aplicación para abrir el
     navegador. Mientras está activa verás una notificación permanente: es la que
     impide que el sistema congele la aplicación y corte la conexión.
+  </p>
+
+  <h3>Navegar a través de otro equipo</h3>
+  <p>
+    En vez de un servicio suelto, quien publica puede prestar su conexión a
+    internet entera. Quien conecta navega entonces con ella, y las webs que
+    visite verán la dirección IP del que presta, no la suya. Conviene tenerlo
+    presente antes de compartir el código, porque para el resto del mundo quien
+    navega es el que presta la conexión.
+  </p>
+  <p>
+    Con PRO, la aplicación abre una ventana de navegación que ya sale por ahí y
+    no hay nada que configurar. Sin PRO funciona igual, poniendo la dirección
+    del proxy (por defecto <code>127.0.0.1:9050</code>) en los ajustes de red
+    del navegador que se prefiera: vale tanto como SOCKS5 como HTTP.
+  </p>
+  <p>
+    El cifrado no se toca por el camino. LinceBlob transporta la conexión pero
+    no la abre, así que el candado del navegador y el certificado de la web se
+    comprueban igual que siempre.
   </p>
 
   <h2 id="confirmar-cada-descarga">Confirmar cada descarga</h2>

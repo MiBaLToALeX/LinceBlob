@@ -14,8 +14,11 @@
 # binario suelto de las releases.
 #
 # Es /bin/sh a propósito (no bash): así corre con dash, busybox y demás shells
-# mínimos, sin depender de que bash esté. (Ojo: Alpine no vale, no por el shell
-# sino porque usa musl y los binarios son de glibc; se avisa más abajo.)
+# mínimos, sin depender de que bash esté.
+#
+# En Alpine y demás sistemas con musl se baja un binario aparte, compilado
+# contra musl y estático: los de glibc no arrancan ahí. De momento solo hay
+# musl para x86_64.
 #
 # (c) Miguel J. Carmona (MIBALTOALEX).
 
@@ -38,13 +41,24 @@ info()  { printf '%s%s%s\n' "$tenue" "$*" "$fin" >&2; }
 # de memfd_create (cambia por arquitectura) y al cargador dinámico de glibc que
 # el binario necesita.
 case "$(uname -m)" in
-  x86_64 | amd64)          activo="lce_linux_x86_64";  memfd_nr=319; cargador="/lib64/ld-linux-x86-64.so.2" ;;
-  aarch64 | arm64)         activo="lce_linux_aarch64"; memfd_nr=279; cargador="/lib/ld-linux-aarch64.so.1" ;;
-  armv7l | armv7 | armhf)  activo="lce_linux_armv7";   memfd_nr=385; cargador="/lib/ld-linux-armhf.so.3" ;;
+  x86_64 | amd64)          activo="lce_linux_x86_64";  memfd_nr=319; cargador="/lib64/ld-linux-x86-64.so.2"; activo_musl="lce_linux_x86_64_musl" ;;
+  aarch64 | arm64)         activo="lce_linux_aarch64"; memfd_nr=279; cargador="/lib/ld-linux-aarch64.so.1"; activo_musl= ;;
+  armv7l | armv7 | armhf)  activo="lce_linux_armv7";   memfd_nr=385; cargador="/lib/ld-linux-armhf.so.3";  activo_musl= ;;
   *) error "arquitectura no soportada: $(uname -m). Solo x86_64, aarch64 y armv7." ;;
 esac
 
-[ -e "$cargador" ] || error "este sistema no tiene glibc (¿Alpine/musl?). lce se distribuye para glibc: usa Debian, Ubuntu, Fedora, Arch o similar."
+# Se prefiere glibc donde lo hay: es lo que se usa y se prueba a diario. El de
+# musl entra cuando no hay glibc, que es el caso de Alpine.
+if [ ! -e "$cargador" ]; then
+  if [ -n "$activo_musl" ] && [ -e "/lib/ld-musl-$(uname -m).so.1" ]; then
+    activo="$activo_musl"
+    info "Sistema con musl: se usa el binario compilado para musl."
+  elif [ -e "/lib/ld-musl-$(uname -m).so.1" ]; then
+    error "este sistema usa musl (¿Alpine?) y todavía no hay binario musl para $(uname -m). Solo x86_64 por ahora."
+  else
+    error "este sistema no tiene glibc. Usa Debian, Ubuntu, Fedora, Arch o similar."
+  fi
+fi
 
 url="https://github.com/MiBaLToALeX/LinceBlob/releases/latest/download/$activo"
 
@@ -107,7 +121,11 @@ run_perl() {
     my $nr = shift; my $ruta = shift;
     open(my $in, "<", $ruta) or die; binmode $in;
     my $datos = do { local $/; <$in> };
-    my $fd = syscall($nr, "lce", 1);
+    # El nombre va en una variable y no como literal: perl le pasa a syscall un
+    # puntero a ese escalar, y con una constante aborta con «Modification of a
+    # read-only value attempted» antes de crear nada.
+    my $nombre = "lce";
+    my $fd = syscall($nr, $nombre, 1);
     die "memfd\n" if $fd < 0;
     open(my $mem, ">&=$fd") or die; binmode $mem; print $mem $datos;
     unlink $ruta;
