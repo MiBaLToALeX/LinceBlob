@@ -59,7 +59,7 @@ aparece el nombre del otro equipo, lo tocas y allí sale el aviso.
 - **Etiqueta NFC** (Android). El móvil hace de etiqueta: otro dispositivo lee lo
   que hayas puesto con solo acercarse, y no necesita tener LinceBlob. También
   sirve para guardaros como contacto juntando los teléfonos.
-- **Reenvío de puertos.** Publica un servicio de tu equipo y ábrelo desde
+- **Reenvío de conexiones.** Publica un servicio de tu equipo y ábrelo desde
   otro sitio como si estuvieras en su misma red.
 - **Cifrado post-cuántico.** Para lo que tenga que seguir siendo secreto
   dentro de muchos años.
@@ -82,7 +82,7 @@ Las descargas están en la
 
 ## Desde la terminal
 
-`lce` es LinceBlob para la terminal: enviar, recibir, reenvío de puertos,
+`lce` es LinceBlob para la terminal: enviar, recibir, reenvío de conexiones,
 túneles SSH... lo mismo que la aplicación, pero desde la consola y sin
 ventanas.
 
@@ -102,8 +102,9 @@ wget -qO- https://lince.mibaltoalex.com/lce.sh | sh -s -- --version
 ```
 
 Funciona en x86_64, aarch64 y armv7, sobre distribuciones con glibc (Debian,
-Ubuntu, Fedora, Arch y compañía). No toca el PATH ni instala nada: es para una
-prueba rápida.
+Ubuntu, Fedora, Arch y compañía). En Alpine y otros sistemas con musl baja el
+binario musl (por ahora solo x86_64). No toca el PATH ni instala nada: es para
+una prueba rápida.
 
 Como en cualquier `curl | sh`, lo estás ejecutando directamente desde internet.
 
@@ -133,5 +134,5 @@ Creado por [Miguel J. Carmona (MIBALTOALEX)](https://me.mibaltoalex.com/).
 
 
 [badge-website]: https://img.shields.io/badge/website-lince.mibaltoalex.com-green
-[badge-version]: https://img.shields.io/badge/version-3.0.0-blue
+[badge-version]: https://img.shields.io/badge/version-3.1.0-blue
 [badge-platforms]: https://img.shields.io/badge/platforms-Windows%2C%20Linux%2C%20Android%2C%20CLI%20-green
