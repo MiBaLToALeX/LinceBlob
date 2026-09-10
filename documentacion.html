@@ -140,14 +140,40 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
   </p>
   <p>
     Con PRO, la aplicación abre una ventana de navegación que ya sale por ahí y
-    no hay nada que configurar. Sin PRO funciona igual, poniendo la dirección
-    del proxy (por defecto <code>127.0.0.1:9050</code>) en los ajustes de red
-    del navegador que se prefiera: vale tanto como SOCKS5 como HTTP.
+    no hay nada que configurar, con su barra de direcciones para ir a donde
+    haga falta. Sin PRO funciona igual, poniendo la dirección del proxy (por
+    defecto <code>127.0.0.1:9050</code>) en los ajustes de red del navegador que
+    se prefiera: vale tanto como SOCKS5 como HTTP.
   </p>
   <p>
     El cifrado no se toca por el camino. LinceBlob transporta la conexión pero
     no la abre, así que el candado del navegador y el certificado de la web se
     comprueban igual que siempre.
+  </p>
+
+  <h3>Nombres que apuntan a un sitio</h3>
+  <p>
+    Igual que el fichero <code>hosts</code> del sistema, se le puede dar un
+    nombre a una dirección: escribes <code>intranet.local</code> y sales por
+    donde ese nombre apunte. Funciona tanto navegando por la conexión de otro
+    como con un puerto suyo, y se pueden tener hasta cincuenta.
+  </p>
+  <p>
+    No es solo comodidad. Al pedir el nombre, el servidor recibe el que espera,
+    y eso es justo lo que necesitan los sitios que alojan varios dominios en la
+    misma dirección: con un puerto reenviado a secas les llega
+    <code>127.0.0.1</code> y devuelven el sitio equivocado, o directamente
+    rechazan la visita.
+  </p>
+  <p>
+    El destino puede quedarse en blanco, y entonces vale lo que publique el
+    otro. Así se le pone nombre a su servicio sin saber en qué dirección lo
+    tiene, que es lo normal cuando publica uno solo.
+  </p>
+  <p>
+    El nombre vive en tu equipo y no cambia nada en el de nadie más. Tampoco
+    amplía lo que puedes alcanzar: quien publica sigue decidiendo qué se
+    comparte, y un nombre que apunte a otro sitio no pasa de ahí.
   </p>
 
   <h2 id="confirmar-cada-descarga">Confirmar cada descarga</h2>

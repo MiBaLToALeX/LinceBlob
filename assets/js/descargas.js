@@ -148,7 +148,11 @@
       /aarch64|arm64/i.test(nombre) ? "ARM64" :
       /armv7|armhf/i.test(nombre) ? "ARMv7" :
       /x86[_-]?64|amd64|x64/i.test(nombre) ? "x86_64" : "";
-    if (sistema && arquitectura) return sistema + " · " + arquitectura;
+    // El binario estático se llama igual que el normal salvo por el «musl» del
+    // final, así que sin esto salían dos «Linux · x86_64» seguidos y no había
+    // manera de saber cuál era cuál.
+    const estatico = /musl/i.test(nombre) ? " · estático" : "";
+    if (sistema && arquitectura) return sistema + " · " + arquitectura + estatico;
     return sistema || arquitectura || nombre;
   }
 
@@ -222,7 +226,10 @@
     const bloqueHerramientas = herramientas.length
       ? '<h2 class="titulo-herramientas">Herramientas de línea de comandos</h2>' +
         '<p class="nota-herramientas">Las herramientas de la aplicación, ' +
-        "disponibles de forma independiente para la terminal o el servidor.</p>" +
+        "disponibles de forma independiente para la terminal o el servidor. " +
+        "Las marcadas como <strong>estático</strong> no dependen de las " +
+        "bibliotecas del sistema y sirven donde las otras no arrancan, como " +
+        "Alpine o una imagen de contenedor mínima.</p>" +
         '<div class="descargas">' + herramientas.join("") + "</div>"
       : "";
 
