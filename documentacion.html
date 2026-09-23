@@ -17,6 +17,9 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
           <li><a href="#recibir">Recibir</a></li>
           <li><a href="#dispositivos-cercanos">Dispositivos cercanos</a></li>
           <li><a href="#reenvio-de-conexiones">Reenvío de conexiones</a></li>
+          <li><a href="#compartir-la-pantalla">Compartir la pantalla</a></li>
+          <li><a href="#ver-sin-descargar">Ver sin descargar</a></li>
+          <li><a href="#otro-equipo-por-ssh">Otro equipo por SSH</a></li>
           <li><a href="#confirmar-cada-descarga">Confirmar cada descarga</a></li>
           <li><a href="#ajustes">Ajustes</a></li>
           <li><a href="#cuando-algo-no-va">Cuando algo no va</a></li>
@@ -174,6 +177,74 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     El nombre vive en tu equipo y no cambia nada en el de nadie más. Tampoco
     amplía lo que puedes alcanzar: quien publica sigue decidiendo qué se
     comparte, y un nombre que apunte a otro sitio no pasa de ahí.
+  </p>
+
+  <h2 id="compartir-la-pantalla">Compartir la pantalla</h2>
+  <p>
+    En <strong>Streaming</strong>, «Compartir una pantalla» enseña lo que hay en
+    tu equipo a quien tenga el ticket. Puedes compartir una pantalla entera, una
+    ventana suelta o solo una parte de cualquiera de las dos: se marca sobre la
+    vista previa, se mueve y se estira por las esquinas, y lo que queda fuera no
+    sale de tu equipo. La parte que se enseña se puede cambiar mientras se
+    comparte, sin cortar nada.
+  </p>
+  <p>
+    <strong>Nadie ve nada hasta que lo autorizas.</strong> Tener el ticket no
+    basta: cuando alguien lo pega, aquí sale una pregunta y hasta que no la
+    respondes, al otro lado solo hay una espera. No se puede saber quién
+    llama, así que acepta solo si lo estabas esperando.
+  </p>
+  <p>
+    Mientras dure, el panel avisa de que se está compartiendo y de si hay
+    alguien mirando. Se pausa con el botón o con <code>Ctrl</code> +
+    <code>Alt</code> + <code>P</code> desde cualquier programa, y en pausa no se
+    captura nada. También puedes ponerle hora de fin —quince minutos, media
+    hora, una o dos— y al acabarse se deja de compartir sola.
+  </p>
+  <p>
+    Se manda solo lo que cambia de la pantalla, así que con la imagen quieta
+    apenas viaja nada. El propio panel enseña lo que cuesta cada fotograma y
+    cuántos datos se están enviando.
+  </p>
+
+  <h3>Manejar el otro equipo</h3>
+  <p>
+    Con la versión de pago, al dar permiso puedes dejar además que muevan el
+    ratón y escriban. Es un interruptor dentro de la misma pregunta, viene
+    apagado, y mientras esté encendido se avisa en el panel con un botón para
+    retirarlo al instante; retirarlo no corta lo que se está viendo.
+  </p>
+  <p>
+    Desde el móvil, el dedo hace de ratón y el botón «Escribir» saca el teclado
+    del teléfono. Si la pantalla que llega es más ancha que alta, se gira sola
+    para que ocupe todo.
+  </p>
+  <p>
+    En Linux hace falta una sesión X11. En Wayland ningún programa puede leer la
+    pantalla ni escribir en ella sin pasar por el portal del escritorio, y eso
+    todavía no está hecho: la aplicación lo dice en vez de quedarse en negro.
+  </p>
+
+  <h2 id="ver-sin-descargar">Ver sin descargar</h2>
+  <p>
+    En <strong>Streaming</strong> también se comparte un vídeo o un audio. El
+    fichero no se copia al otro equipo: se va leyendo del tuyo mientras lo ven,
+    así que empieza al momento y se puede adelantar y retroceder como en
+    cualquier reproductor. Mientras alguien lo esté viendo, la aplicación tiene
+    que seguir abierta aquí.
+  </p>
+
+  <h2 id="otro-equipo-por-ssh">Otro equipo por SSH</h2>
+  <p>
+    En <strong>Conexiones SSH</strong> se guardan los equipos a los que sueles
+    entrar. Desde ahí se abre un explorador de sus ficheros —subir y bajar en
+    cola, carpetas incluidas, con recuento y permisos— y una terminal dentro de
+    la propia aplicación, con buscador y con el explorador a un clic desde donde
+    estés trabajando.
+  </p>
+  <p>
+    La clave del servidor se comprueba aquí: si cambia, sale un aviso. Las
+    conexiones guardadas son de la versión de pago.
   </p>
 
   <h2 id="confirmar-cada-descarga">Confirmar cada descarga</h2>
