@@ -33,6 +33,10 @@
 
 * { box-sizing: border-box; }
 
+/* La cabecera va fija arriba, así que al saltar a un enlace con almohadilla el
+   destino quedaba debajo de ella. Se deja hueco de sobra para que se vea. */
+html { scroll-padding-top: 5rem; }
+
 body {
   margin: 0;
   background: var(--fondo);
@@ -671,7 +675,7 @@ pre code { background: none; border: 0; padding: 0; }
   gap: .5rem;
 }
 
-.plataforma {
+.boton-sistema {
   display: inline-flex;
   align-items: center;
   gap: .55rem;
@@ -686,20 +690,20 @@ pre code { background: none; border: 0; padding: 0; }
 /* El color del texto, fijado para TODOS los estados. El de los enlaces es
    verde en el resto de la página, y sobre el fondo oscuro del botón se leía
    mal en cuanto el enlace pasaba a visitado o se pasaba el ratón. */
-.plataforma,
-.plataforma:hover,
-.plataforma:focus,
-.plataforma:visited,
-.plataforma:active { color: var(--fondo); }
+.boton-sistema,
+.boton-sistema:hover,
+.boton-sistema:focus,
+.boton-sistema:visited,
+.boton-sistema:active { color: var(--fondo); }
 
-.plataforma:hover {
+.boton-sistema:hover {
   transform: translateY(-1px);
   box-shadow: var(--sombra);
 }
 
-.plataforma svg { width: 20px; height: 20px; flex: none; }
+.boton-sistema svg { width: 20px; height: 20px; flex: none; }
 
-.plataforma span {
+.boton-sistema span {
   display: inline-flex;
   align-items: baseline;
   gap: .4rem;
@@ -708,7 +712,7 @@ pre code { background: none; border: 0; padding: 0; }
   line-height: 1;
 }
 
-.plataforma small {
+.boton-sistema small {
   font-weight: 500;
   font-size: .68rem;
   letter-spacing: .04em;
@@ -828,19 +832,19 @@ pre code { background: none; border: 0; padding: 0; }
   .heroe-dispositivos { padding-bottom: 3.5rem; min-height: 16rem; }
   .portatil { width: 62%; }
   .telefono { width: 26%; }
-  .plataforma { flex: 1 1 auto; }
+  .boton-sistema { flex: 1 1 auto; }
 }
 
 /* «Cómo funciona» va con los botones, pero no es una descarga: mismo tamaño y
    misma altura, sin el fondo oscuro que llama a pulsar. */
-.plataforma-suave,
-.plataforma-suave:hover,
-.plataforma-suave:focus,
-.plataforma-suave:visited,
-.plataforma-suave:active {
+.boton-sistema-suave,
+.boton-sistema-suave:hover,
+.boton-sistema-suave:focus,
+.boton-sistema-suave:visited,
+.boton-sistema-suave:active {
   background: transparent;
   border-color: var(--borde);
   color: var(--texto);
 }
 
-.plataforma-suave:hover { background: var(--fondo-2); }
+.boton-sistema-suave:hover { background: var(--fondo-2); }

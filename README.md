@@ -64,7 +64,7 @@ aparece el nombre del otro equipo, lo tocas y allí sale el aviso.
 - **Compartir la pantalla.** Una pantalla entera, una ventana suelta o solo una
   parte, y quien tenga el ticket la ve al momento. Nadie ve nada hasta que tú
   dices que sí, y se puede poner hora de fin.
-- **Manejar el otro equipo**, en la versión de pago. Ratón y teclado sobre la
+- **Manejar el otro equipo**, con licencia PRO. Ratón y teclado sobre la
   pantalla compartida, también desde el móvil. Es una segunda decisión dentro
   del mismo permiso, y se retira de golpe.
 - **Ver sin descargar.** Un vídeo o un audio se reproducen mientras se leen del
