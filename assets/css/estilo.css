@@ -173,7 +173,7 @@ pre code { background: none; border: 0; padding: 0; }
 /* --------------------------------------------------------------------- héroe */
 
 .heroe {
-  padding: 4rem 0 3rem;
+  padding: 3rem 0 2rem;
   text-align: center;
   background:
     radial-gradient(60rem 22rem at 50% -8rem, color-mix(in srgb, var(--verde) 14%, transparent), transparent);
@@ -611,3 +611,236 @@ pre code { background: none; border: 0; padding: 0; }
 @media (prefers-reduced-motion: reduce) {
   .arriba { transition: none; }
 }
+
+
+/* ---------------------------------------------------------------- portada
+   La primera pantalla tiene que contar de qué es capaz esto, no solo que
+   envía ficheros: de ahí los tres verbos y los tres aparatos.
+
+   Las capturas son de la aplicación DE VERDAD, de la misma compilación (ver
+   capturas-web.mjs en el proyecto). Los marcos —tele, portátil y teléfono— son
+   CSS y no imágenes: así no hay que mantener una maqueta que envejece, y pesan
+   cero. */
+
+.heroe-reparto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  text-align: left;
+}
+
+@media (min-width: 62rem) {
+  .heroe-reparto {
+    grid-template-columns: minmax(0, 27rem) minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.heroe-marca {
+  display: block;
+  width: clamp(140px, 17vw, 190px);
+  height: auto;
+  margin: 0 0 .75rem;
+}
+
+.heroe-reparto h1 {
+  font-size: clamp(2.3rem, 5.5vw, 3.6rem);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+  margin: 0 0 .9rem;
+}
+
+.heroe-reparto h1 span { color: var(--verde); }
+
+.heroe-frase {
+  margin: 0 0 1.4rem !important;
+  max-width: 30rem;
+}
+
+.heroe-nota {
+  font-size: .95rem;
+  margin: 1rem 0 0 !important;
+}
+
+/* Los botones, juntos y pequeños: son tres y van en fila, no son el asunto
+   principal de la página. */
+.plataformas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.plataforma {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .5rem .85rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: var(--texto);
+  text-decoration: none;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+/* El color del texto, fijado para TODOS los estados. El de los enlaces es
+   verde en el resto de la página, y sobre el fondo oscuro del botón se leía
+   mal en cuanto el enlace pasaba a visitado o se pasaba el ratón. */
+.plataforma,
+.plataforma:hover,
+.plataforma:focus,
+.plataforma:visited,
+.plataforma:active { color: var(--fondo); }
+
+.plataforma:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--sombra);
+}
+
+.plataforma svg { width: 20px; height: 20px; flex: none; }
+
+.plataforma span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .4rem;
+  font-weight: 600;
+  font-size: .98rem;
+  line-height: 1;
+}
+
+.plataforma small {
+  font-weight: 500;
+  font-size: .68rem;
+  letter-spacing: .04em;
+  opacity: .7;
+}
+
+/* ----------------------------------------------------------- los aparatos */
+
+.heroe-dispositivos {
+  position: relative;
+  padding: 0;
+  min-height: 20rem;
+}
+
+/* La tele, al fondo: es la pantalla grande y por eso va detrás y arriba. */
+.tele {
+  width: 92%;
+  margin-left: auto;
+  /* El hueco de abajo es donde se apoyan el portátil y el teléfono. */
+  margin-bottom: 3.25rem;
+}
+
+.tele-marco {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #10150f;
+  border: 8px solid #10150f;
+  box-shadow: 0 20px 50px rgb(22 33 26 / 20%);
+  aspect-ratio: 16 / 9;
+}
+
+.tele-marco img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* Sin recortar: la captura se hace ya con la forma de la pantalla, así que
+     entra entera. Antes se capturaba en cuadrado y se recortaba aquí, y de la
+     lista solo se veían dos entradas. */
+  object-fit: fill;
+}
+
+/* El pie de la tele: dos trazos bastan para que se lea como un televisor. */
+.tele-pie {
+  display: block;
+  width: 22%;
+  height: .55rem;
+  margin: 0 auto;
+  border-radius: 0 0 6px 6px;
+  background: #10150f;
+  opacity: .85;
+}
+
+.tele-pie::after {
+  content: "";
+  display: block;
+  width: 260%;
+  height: .4rem;
+  margin: .35rem 0 0 -80%;
+  border-radius: 999px;
+  background: #10150f;
+  opacity: .55;
+}
+
+/* El portátil, delante y a la izquierda. */
+.portatil {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  max-width: 18rem;
+}
+
+.portatil-marco {
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  background: #1b231d;
+  border: 6px solid #1b231d;
+  border-bottom: none;
+  box-shadow: 0 16px 36px rgb(22 33 26 / 26%);
+  aspect-ratio: 10 / 7;
+}
+
+.portatil-marco img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+/* La base: más ancha que la pantalla, como en un portátil de verdad. */
+.portatil-base {
+  display: block;
+  width: 112%;
+  height: .7rem;
+  margin-left: -6%;
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(#2a352c, #1b231d);
+}
+
+/* Y el teléfono, delante y a la derecha. */
+.telefono {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  width: 19%;
+  max-width: 128px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 6px solid #10150f;
+  background: #10150f;
+  box-shadow: 0 16px 36px rgb(22 33 26 / 30%);
+}
+
+.telefono img { display: block; width: 100%; height: auto; }
+
+@media (max-width: 40rem) {
+  .heroe-dispositivos { padding-bottom: 3.5rem; min-height: 16rem; }
+  .portatil { width: 62%; }
+  .telefono { width: 26%; }
+  .plataforma { flex: 1 1 auto; }
+}
+
+/* «Cómo funciona» va con los botones, pero no es una descarga: mismo tamaño y
+   misma altura, sin el fondo oscuro que llama a pulsar. */
+.plataforma-suave,
+.plataforma-suave:hover,
+.plataforma-suave:focus,
+.plataforma-suave:visited,
+.plataforma-suave:active {
+  background: transparent;
+  border-color: var(--borde);
+  color: var(--texto);
+}
+
+.plataforma-suave:hover { background: var(--fondo-2); }
