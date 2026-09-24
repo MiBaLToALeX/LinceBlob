@@ -641,11 +641,21 @@ pre code { background: none; border: 0; padding: 0; }
   }
 }
 
+/* En una columna el logo manda: va centrado y grande, porque es lo primero que
+   se ve al abrir la página en el móvil. En dos columnas vuelve a la izquierda,
+   con el texto al que acompaña. */
 .heroe-marca {
   display: block;
-  width: clamp(140px, 17vw, 190px);
+  width: clamp(190px, 48vw, 240px);
   height: auto;
-  margin: 0 0 .75rem;
+  margin: 0 auto .9rem;
+}
+
+@media (min-width: 62rem) {
+  .heroe-marca {
+    width: clamp(160px, 18vw, 215px);
+    margin-left: 0;
+  }
 }
 
 .heroe-reparto h1 {
