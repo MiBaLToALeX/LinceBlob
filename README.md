@@ -67,8 +67,12 @@ aparece el nombre del otro equipo, lo tocas y allí sale el aviso.
 - **Manejar el otro equipo**, con licencia PRO. Ratón y teclado sobre la
   pantalla compartida, también desde el móvil. Es una segunda decisión dentro
   del mismo permiso, y se retira de golpe.
-- **Ver sin descargar.** Un vídeo o un audio se reproducen mientras se leen del
-  otro equipo, y se puede adelantar y retroceder como en cualquier reproductor.
+- **Ver sin descargar.** Un vídeo, un audio o un PDF se ven mientras se leen del
+  otro equipo. Quien comparte decide si se puede descargar; si no, solo se ve
+  dentro de LinceBlob y cada persona tiene que pedirle permiso.
+- **Ver en el televisor.** Ese vídeo, si se puede descargar, o uno tuyo, al
+  televisor de casa por DLNA o Chromecast, con sus mandos en la aplicación. Si
+  la red no deja buscarlo, se añade por su IP.
 - **Explorador y terminal por SSH.** Entrar en otro equipo, mover ficheros en
   los dos sentidos y trabajar en su consola sin salir de la aplicación.
 - **Cifrado post-cuántico.** Para lo que tenga que seguir siendo secreto
@@ -144,5 +148,5 @@ Creado por [Miguel J. Carmona (MIBALTOALEX)](https://me.mibaltoalex.com/).
 
 
 [badge-website]: https://img.shields.io/badge/website-lince.mibaltoalex.com-green
-[badge-version]: https://img.shields.io/badge/version-3.16.0-blue
+[badge-version]: https://img.shields.io/badge/version-3.14.0-blue
 [badge-platforms]: https://img.shields.io/badge/platforms-Windows%2C%20Linux%2C%20Android%2C%20CLI%20-green

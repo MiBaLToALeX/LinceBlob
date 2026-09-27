@@ -19,6 +19,7 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
           <li><a href="#reenvio-de-conexiones">Reenvío de conexiones</a></li>
           <li><a href="#compartir-la-pantalla">Compartir la pantalla</a></li>
           <li><a href="#ver-sin-descargar">Ver sin descargar</a></li>
+          <li><a href="#ver-en-el-televisor">Ver en el televisor</a></li>
           <li><a href="#otro-equipo-por-ssh">Otro equipo por SSH</a></li>
           <li><a href="#confirmar-cada-descarga">Confirmar cada descarga</a></li>
           <li><a href="#ajustes">Ajustes</a></li>
@@ -227,11 +228,69 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
 
   <h2 id="ver-sin-descargar">Ver sin descargar</h2>
   <p>
-    En <strong>Streaming</strong> también se comparte un vídeo o un audio. El
-    fichero no se copia al otro equipo: se va leyendo del tuyo mientras lo ven,
-    así que empieza al momento y se puede adelantar y retroceder como en
-    cualquier reproductor. Mientras alguien lo esté viendo, la aplicación tiene
-    que seguir abierta aquí.
+    En <strong>Streaming</strong> también se comparte un vídeo, un audio o un
+    documento PDF. El fichero no se copia al otro equipo: se va leyendo del tuyo
+    mientras lo ven, así que empieza al momento y se puede adelantar y
+    retroceder como en cualquier reproductor. Un PDF se ve página a página
+    dentro de la aplicación, con zoom y a pantalla completa. Mientras alguien lo
+    esté viendo, la aplicación tiene que seguir abierta aquí.
+  </p>
+
+  <h3>Quién puede descargarlo</h3>
+  <p>
+    Lo decides tú al compartir, con <strong>Permitir la descarga</strong>, que
+    viene apagado.
+  </p>
+  <ul>
+    <li>
+      <strong>Sin descarga</strong>, solo se puede ver dentro de LinceBlob, y
+      cada persona tiene que pedirte permiso: te sale un aviso y, hasta que
+      pulses <strong>Dejar ver</strong>, no le llega nada. Tampoco puede
+      mandarlo a su televisor.
+    </li>
+    <li>
+      <strong>Con descarga</strong>, quien lo ve tiene un botón para guardarlo
+      entero y puede verlo en su televisor.
+    </li>
+  </ul>
+  <p>
+    Esto evita que la aplicación ofrezca guardarlo y que otros programas del
+    dispositivo de quien lo ve puedan leerlo. No lo protege de todo: quien ve
+    algo siempre puede grabar su pantalla. Lo que no quieras que nadie
+    conserve, no lo compartas.
+  </p>
+
+  <h2 id="ver-en-el-televisor">Ver en el televisor</h2>
+  <p>
+    Lo que ves por un ticket, si quien lo comparte permite descargarlo, o el
+    vídeo que compartes tú, se puede mandar al televisor con
+    <strong>Ver en el televisor</strong>. Vale para la mayoría de
+    televisores inteligentes (los que admiten DLNA: Samsung, LG, Sony, Philips,
+    Hisense…) y para Chromecast y los televisores con Google TV. Se buscan solos
+    en la red de casa, y mientras se ve tienes a mano reproducir, pausar, saltar
+    y la barra de posición. Van al día aunque uses el mando del propio televisor.
+  </p>
+  <p>
+    Si tu red no deja buscar, o el televisor está en otra red, añádelo por su IP:
+    aparece en los ajustes de red del televisor. Las IP añadidas se guardan y se
+    prueban en cada búsqueda.
+  </p>
+  <p>
+    El televisor pide el vídeo a tu dispositivo por la red local. Para eso, solo
+    mientras se ve, se abre una dirección que únicamente atiende a ese televisor
+    y que se cierra al dejar de verlo. No se convierte el vídeo: el televisor
+    reproduce lo que sepa reproducir, y MP4 lo reproduce casi cualquiera.
+  </p>
+  <p>
+    Un Fire TV no trae ni DLNA ni Chromecast. Instalando en él una aplicación
+    que haga de receptor, aparece como uno más.
+  </p>
+
+  <h3>Con el mando de una Android TV</h3>
+  <p>
+    Con LinceBlob instalado en una Android TV, el vídeo se maneja con el mando:
+    OK pausa, izquierda y derecha saltan diez segundos, y las teclas multimedia
+    hacen lo que dicen.
   </p>
 
   <h2 id="otro-equipo-por-ssh">Otro equipo por SSH</h2>
@@ -362,6 +421,14 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     Repasa que la visibilidad esté activada en los dos dispositivos y que estén en
     la misma red. Si aun así no se ven, mira lo que se explica más arriba sobre
     el aislamiento de clientes.
+  </p>
+
+  <h3>El televisor no aparece</h3>
+  <p>
+    Comprueba que está encendido y en la misma red, y añádelo por su IP: muchas
+    redes de empresa y algunas wifi de invitados no dejan buscar. En Windows, si
+    aparece pero no llega a reproducir, puede que el cortafuegos haya bloqueado
+    la conexión: hay que permitir LinceBlob en las redes privadas.
   </p>
 
   <h2 id="si-sigues-atascado">Si sigues atascado</h2>
