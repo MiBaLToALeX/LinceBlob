@@ -73,6 +73,9 @@ aparece el nombre del otro equipo, lo tocas y allí sale el aviso.
 - **Ver en el televisor.** Ese vídeo, si se puede descargar, o uno tuyo, al
   televisor de casa por DLNA o Chromecast, con sus mandos en la aplicación. Si
   la red no deja buscarlo, se añade por su IP.
+- **En el navegador.** Enviar y recibir sin instalar nada, en
+  [lince.mibaltoalex.com/web](https://lince.mibaltoalex.com/web/). El ticket vale
+  también en la aplicación, y al revés.
 - **Explorador y terminal por SSH.** Entrar en otro equipo, mover ficheros en
   los dos sentidos y trabajar en su consola sin salir de la aplicación.
 - **Cifrado post-cuántico.** Para lo que tenga que seguir siendo secreto

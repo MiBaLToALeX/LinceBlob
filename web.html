@@ -1,0 +1,137 @@
+---
+layout: default
+title: LinceBlob en el navegador
+permalink: /web/
+description: Envía y recibe archivos con LinceBlob desde el navegador, sin instalar nada. Cifrado de extremo a extremo, y el ticket vale también en la aplicación.
+---
+
+<section class="seccion">
+  <div class="contenedor web">
+  <h1>LinceBlob en tu navegador</h1>
+  <p class="web-entrada">
+    Envía y recibe archivos sin instalar nada. La versión web se integra con la aplicación:
+    los tickets creados aquí se abren en LinceBlob y los de LinceBlob, aquí.
+  </p>
+
+    <!-- Si el navegador no sabe lo que hace falta, se dice en vez de fallar
+         a medias. Lo enseña web.js. -->
+    <div class="aviso web-no-vale" id="no-vale" hidden>
+      <p>
+        Este navegador no es compatible con las funciones necesarias: almacenamiento
+  privado de archivos (OPFS) y WebAssembly. Actualízalo o prueba con una versión
+  reciente de Chrome, Edge, Firefox o Safari o
+        <a href="{{ '/descargar/' | relative_url }}">descarga la aplicación</a>.
+      </p>
+    </div>
+
+    <div class="web-app" id="web">
+      <!-- Dos pestañas: se envía o se recibe, no las dos cosas a la vez, así
+           que no hace falta tener las dos a la vista. -->
+      <div class="web-espacio" id="espacio" hidden>
+        <div class="web-espacio-texto">
+          <span>Almacenamiento del navegador</span>
+          <span id="espacio-cifra"></span>
+        </div>
+        <div class="web-espacio-barra" role="progressbar" id="espacio-barra" aria-label="Almacenamiento usado" aria-valuemin="0" aria-valuemax="100">
+          <span id="espacio-lleno"></span>
+        </div>
+        <p class="web-nota" id="espacio-aviso" hidden></p>
+      </div>
+
+      <div class="web-pestanas" role="tablist" aria-label="Qué quieres hacer">
+        <button type="button" role="tab" id="pestana-enviar" aria-controls="panel-enviar" aria-selected="true">Enviar</button>
+        <button type="button" role="tab" id="pestana-recibir" aria-controls="panel-recibir" aria-selected="false" tabindex="-1">Recibir</button>
+      </div>
+      <!-- ------------------------------------------------------------ enviar -->
+      <div class="tarjeta web-panel" role="tabpanel" id="panel-enviar" aria-labelledby="pestana-enviar">
+        <label class="web-soltar" id="soltar">
+          <input type="file" id="elegir" multiple hidden>
+          <span>Arrastra aquí los archivos o <strong>pulsa para elegirlos</strong></span>
+        </label>
+        <ul class="web-lista" id="elegidos"></ul>
+        <div class="acciones">
+          <button type="button" class="boton boton-primario" id="compartir" disabled>Compartir</button>
+          <button type="button" class="boton boton-secundario" id="dejar" hidden>Dejar de compartir</button>
+        </div>
+        <div class="web-avance" id="avance-envio" hidden>
+          <p id="texto-envio"></p>
+          <progress id="barra-envio" max="100" value="0"></progress>
+        </div>
+        <div class="web-ticket" id="ticket-envio" hidden>
+          <div class="web-qr" id="qr"></div>
+          <p class="web-ticket-texto" id="ticket-texto"></p>
+          <div class="acciones">
+            <button type="button" class="boton boton-secundario" id="copiar">Copiar el ticket</button>
+          </div>
+          <p class="web-nota">
+            Mantén esta pestaña abierta mientras se completa la descarga: los archivos se
+  envían desde aquí. <span id="enviado"></span>
+          </p>
+        </div>
+        <p class="web-nota" id="antes" hidden>
+          Tienes archivos compartidos de antes.
+          <button type="button" class="boton-enlace" id="recompartir">Volver a compartirlos</button>
+          ·
+          <button type="button" class="boton-enlace" id="borrar-antes">Borrarlos</button>
+        </p>
+      </div>
+
+      <!-- ----------------------------------------------------------- recibir -->
+      <div class="tarjeta web-panel" role="tabpanel" id="panel-recibir" aria-labelledby="pestana-recibir" hidden>
+        <label for="ticket-recibir" class="web-etiqueta">Pega el ticket</label>
+        <textarea id="ticket-recibir" rows="3" spellcheck="false" placeholder="lce…"></textarea>
+        <div class="acciones">
+          <button type="button" class="boton boton-primario" id="recibir" disabled>Recibir</button>
+        </div>
+        <div class="web-avance" id="avance-recibir" hidden>
+          <p id="texto-recibir"></p>
+          <progress id="barra-recibir" max="100" value="0"></progress>
+        </div>
+        <ul class="web-lista web-recibidos" id="recibidos"></ul>
+        <div class="acciones" id="acciones-recibidos" hidden>
+          <button type="button" class="boton boton-secundario" id="guardar-todo">Guardar todo</button>
+          <button type="button" class="boton boton-secundario" id="borrar-recibidos">Borrar de este navegador</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>Cómo funciona</h2>
+    <ul class="web-como">
+      <li>
+        <strong>Cifrado de extremo a extremo</strong>, igual que en la aplicación.
+        Como el navegador no puede conectarse directamente, los datos pasan por un
+        relé que solo reenvía la información ya cifrada y no puede leerla. Por eso,
+        las transferencias pueden ser más lentas que en la aplicación.
+      </li>
+      <li>
+        <strong>Los archivos permanecen en este navegador</strong>, dentro de su
+        almacenamiento privado (OPFS), al que ninguna otra web puede acceder. Los
+        archivos que compartes se copian allí para poder enviarlos, y los que recibes
+        permanecen allí hasta que los guardas en tu equipo. Puedes borrarlos cuando
+        quieras.
+      </li>
+      <li>
+        <strong>Sin cuentas ni servidores que almacenen tus archivos.</strong> Esta
+        página solo carga el programa; los archivos se transfieren directamente entre
+        navegadores o dispositivos, a través del relé cuando es necesario.
+      </li>
+      <li>
+        Para todo lo demás (carpetas enteras, compartir la pantalla, el televisor,
+        usar SSH, etc) utiliza <a href="{{ '/descargar/' | relative_url }}">la aplicación</a>.
+      </li>
+    </ul>
+  </div>
+</section>
+
+<dialog class="web-dialogo" id="confirmar">
+  <form method="dialog">
+    <h2 id="confirmar-titulo"></h2>
+    <p id="confirmar-texto"></p>
+    <div class="acciones">
+      <button type="submit" class="boton boton-secundario" value="no" autofocus>Cancelar</button>
+      <button type="submit" class="boton boton-peligro" value="si" id="confirmar-si"></button>
+    </div>
+  </form>
+</dialog>
+
+<script type="module" src="{{ '/public/web.js' | relative_url }}"></script>

@@ -113,7 +113,7 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
     <h1>Política de privacidad de LinceBlob</h1>
     <p class="lb-fecha">
       Aplicable a las versiones de escritorio (Windows y Linux) y de Android, incluida Android&nbsp;TV.<br />
-      Última actualización: 27 de septiembre de 2026.
+      Última actualización: 28 de septiembre de 2026.
     </p>
 
     <div class="lb-resumen">
@@ -237,6 +237,18 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
       aplicación elimina todo lo anterior, salvo los ficheros que hayas descargado y las claves que hayas guardado
       fuera de la carpeta de la aplicación.</p>
 
+    <h3>3.1. En la versión del navegador</h3>
+    <p>La página <a href="{{ '/web/' | relative_url }}">LinceBlob en el navegador</a> guarda, solo en tu navegador y
+      para esta web:</p>
+    <ul>
+      <li><strong>Los archivos</strong> que compartes (copiados para poder servirlos) y los que recibes (hasta que los
+        pasas a tu equipo), en el almacenamiento privado de archivos del navegador (OPFS). Ninguna otra web puede
+        verlos. Se borran con los botones de la propia página, o borrando los datos del sitio en tu navegador.</li>
+      <li><strong>Una clave de conexión</strong> y los nombres de lo que compartes, en el almacenamiento local del
+        navegador, para que al recargar la página el ticket siga siendo el mismo.</li>
+    </ul>
+    <p>Nada de eso sale de tu navegador salvo lo que envías tú a quien tiene el ticket.</p>
+
     <h2 id="que-sale-de-tu-dispositivo-y-hacia-donde">4. Qué sale de tu dispositivo y hacia dónde</h2>
 
     <h3>4.1. La transferencia de ficheros</h3>
@@ -248,6 +260,9 @@ description: Política de privacidad de LinceBlob para escritorio (Windows, Linu
       reenvía datos ya cifrados: <strong>no puede leer el contenido</strong>, pero sí ve las direcciones IP de los dos
       extremos y el volumen de datos que pasa. Se utiliza la red pública de relays operada por
       <a href="https://n0.computer" target="_blank" rel="noopener">N0</a>, que mantiene el proyecto iroh y el relay pkarr propio mantenido por MIBALTOALEX.</p>
+    <p>En la versión del navegador no hay conexión directa: el tráfico pasa <strong>siempre</strong> por uno de esos
+      servidores de retransmisión, igual de cifrado. La página la sirve GitHub Pages, que, como cualquier web, ve tu
+      dirección IP al cargarla; los archivos no pasan por ahí.</p>
 
     <h3>4.2. Encontrar al otro extremo</h3>
     <p>Para que dos dispositivos se localicen, la aplicación publica y consulta la dirección de red asociada a su clave

@@ -57,6 +57,7 @@
       <nav class="navegacion">
         {% assign actual = page.url | remove: '/index.html' %}
         <a href="{{ '/descargar/' | relative_url }}" {% if actual contains 'descargar' %}aria-current="page"{% endif %}>Descargar</a>
+        <a href="{{ '/web/' | relative_url }}" {% if actual contains '/web' %}aria-current="page"{% endif %}>En el navegador</a>
         <a href="{{ '/documentacion/' | relative_url }}" {% if actual contains 'documentacion' %}aria-current="page"{% endif %}>Documentación</a>
         <a href="{{ '/privacidad/' | relative_url }}" {% if actual contains 'privacidad' %}aria-current="page"{% endif %}>Privacidad</a>
         <a class="nav-externo" href="https://github.com/{{ site.repositorio }}">GitHub</a>

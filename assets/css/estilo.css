@@ -858,3 +858,283 @@ pre code { background: none; border: 0; padding: 0; }
 }
 
 .boton-sistema-suave:hover { background: var(--fondo-2); }
+
+/* ------------------------------------------------------ en el navegador (/web/)
+   Dos paneles, enviar y recibir, que se apilan en el móvil. Todo con las
+   variables de color de arriba, para que siga el tema claro y el oscuro. */
+
+.web-entrada {
+  color: var(--texto-2);
+  max-width: 44rem;
+}
+
+.web-app {
+  max-width: 40rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.web-pestanas {
+  display: flex;
+  gap: .25rem;
+  border-bottom: 1px solid var(--borde);
+  margin-bottom: 1rem;
+}
+
+.web-pestanas [role="tab"] {
+  padding: .6rem 1.2rem;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  background: none;
+  color: var(--texto-2);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.web-pestanas [role="tab"]:hover {
+  color: var(--texto);
+}
+
+.web-pestanas [role="tab"][aria-selected="true"] {
+  color: var(--verde);
+  border-bottom-color: var(--verde);
+}
+
+.web-panel {
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+}
+
+.web-panel h2 {
+  margin: 0;
+}
+
+.web-panel .acciones {
+  justify-content: flex-start;
+}
+
+.web-soltar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 7rem;
+  padding: 1rem;
+  border: 2px dashed var(--borde);
+  border-radius: var(--radio);
+  color: var(--texto-2);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+
+.web-soltar:hover,
+.web-soltar.encima {
+  border-color: var(--verde);
+  background: var(--fondo-2);
+}
+
+.web-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  font-size: .93rem;
+}
+
+.web-lista:empty {
+  display: none;
+}
+
+.web-recibidos li {
+  display: flex;
+  justify-content: space-between;
+  gap: .75rem;
+  align-items: baseline;
+  border: 1px solid var(--borde);
+  border-radius: 9px;
+  padding: .45rem .75rem;
+  overflow-wrap: anywhere;
+}
+
+.web-etiqueta {
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+.web textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: .6rem .75rem;
+  border: 1px solid var(--borde);
+  border-radius: 9px;
+  background: var(--fondo);
+  color: var(--texto);
+  font: .85rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  resize: vertical;
+}
+
+.web-avance p {
+  margin: 0 0 .35rem;
+  font-size: .93rem;
+  color: var(--texto-2);
+}
+
+.web-avance progress {
+  width: 100%;
+  height: .6rem;
+  accent-color: var(--verde);
+}
+
+.web-ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+}
+
+.web-qr {
+  width: min(14rem, 70%);
+  padding: .5rem;
+  background: #fff;
+  border-radius: 9px;
+}
+
+.web-qr svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.web-ticket-texto {
+  margin: 0;
+  width: 100%;
+  padding: .6rem .75rem;
+  border-radius: 9px;
+  background: var(--fondo-2);
+  font: .78rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+
+.web-nota {
+  margin: 0;
+  font-size: .88rem;
+  color: var(--texto-2);
+}
+
+.boton-enlace {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--verde);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton-enlace:hover {
+  text-decoration: underline;
+}
+
+.web-como li {
+  margin-bottom: .6rem;
+}
+
+/* El almacenamiento del navegador, encima de las pestañas. La barra cambia de
+   color según se llena: verde, ámbar a partir del 75 % y rojo desde el 90 %. */
+.web-espacio {
+  --lleno: var(--verde);
+  margin-bottom: 1.25rem;
+}
+
+.web-espacio[data-tramo="casi"] {
+  --lleno: #d98a04;
+}
+
+.web-espacio[data-tramo="lleno"] {
+  --lleno: #d33a2c;
+}
+
+.web-espacio-texto {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: .88rem;
+  color: var(--texto-2);
+  margin-bottom: .35rem;
+}
+
+.web-espacio-texto span:last-child {
+  font-variant-numeric: tabular-nums;
+  color: var(--texto);
+}
+
+.web-espacio-barra {
+  height: .55rem;
+  border-radius: 999px;
+  background: var(--fondo-2);
+  border: 1px solid var(--borde);
+  overflow: hidden;
+}
+
+.web-espacio-barra span {
+  display: block;
+  height: 100%;
+  background: var(--lleno);
+  transition: width .3s, background .3s;
+}
+
+.web-espacio .web-nota {
+  margin-top: .4rem;
+  color: var(--lleno);
+}
+
+/* El diálogo de confirmar. */
+.web-dialogo {
+  max-width: min(28rem, 92vw);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--fondo);
+  color: var(--texto);
+  box-shadow: var(--sombra);
+  padding: 1.25rem 1.4rem;
+}
+
+.web-dialogo::backdrop {
+  background: rgb(0 0 0 / 45%);
+}
+
+.web-dialogo h2 {
+  margin: 0 0 .5rem;
+  font-size: 1.15rem;
+}
+
+.web-dialogo p {
+  margin: 0 0 1.1rem;
+  color: var(--texto-2);
+}
+
+.web-dialogo .acciones {
+  justify-content: flex-end;
+}
+
+/* Lo que no tiene vuelta atrás, en rojo, como en la aplicación. */
+.boton-peligro {
+  background: #d33a2c;
+  color: #fff;
+}
+
+.boton-peligro:hover {
+  background: #b32d21;
+  color: #fff;
+}
+
+/* Lo escondido, escondido. Varias de estas cajas llevan `display: flex`, y eso
+   gana al `hidden` del navegador: salían a la vez las dos pestañas, los dos
+   botones de compartir y la zona del ticket vacía. */
+.web [hidden] {
+  display: none !important;
+}

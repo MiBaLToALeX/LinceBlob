@@ -20,6 +20,7 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
           <li><a href="#compartir-la-pantalla">Compartir la pantalla</a></li>
           <li><a href="#ver-sin-descargar">Ver sin descargar</a></li>
           <li><a href="#ver-en-el-televisor">Ver en el televisor</a></li>
+          <li><a href="#en-el-navegador">En el navegador</a></li>
           <li><a href="#otro-equipo-por-ssh">Otro equipo por SSH</a></li>
           <li><a href="#confirmar-cada-descarga">Confirmar cada descarga</a></li>
           <li><a href="#ajustes">Ajustes</a></li>
@@ -291,6 +292,37 @@ description: Guía de uso de LinceBlob. Enviar y recibir archivos, dispositivos 
     Con LinceBlob instalado en una Android TV, el vídeo se maneja con el mando:
     OK pausa, izquierda y derecha saltan diez segundos, y las teclas multimedia
     hacen lo que dicen.
+  </p>
+
+  <h2 id="en-el-navegador">En el navegador</h2>
+  <p>
+    Para enviar y recibir archivos no hace falta instalar nada:
+    <a href="{{ '/web/' | relative_url }}">LinceBlob en el navegador</a> hace lo
+    mismo desde una página, y se entiende con la aplicación. Un ticket que sale
+    de ahí se abre en LinceBlob, y uno de LinceBlob se abre ahí.
+  </p>
+  <ul>
+    <li>
+      <strong>Enviar</strong>: eliges o arrastras los archivos, y sale el ticket
+      con su QR. Deja la pestaña abierta mientras lo descargan, porque los
+      archivos salen de ella.
+    </li>
+    <li>
+      <strong>Recibir</strong>: pegas el ticket, y lo que llega se queda en el
+      navegador hasta que lo guardas en tu equipo.
+    </li>
+  </ul>
+  <p>
+    Los archivos se guardan en el almacenamiento privado del navegador para
+    esta web (OPFS), que ninguna otra página puede ver. Arriba de la página se
+    ve cuánto ocupa, y la barra se pone en ámbar y en rojo según se llena. Si
+    recargas la página, te ofrece volver a compartir lo de antes con el mismo
+    ticket.
+  </p>
+  <p>
+    En el navegador no hay conexión directa: todo va por un relé, cifrado, así
+    que es más lento que la aplicación. Tampoco hay carpetas enteras, pantalla
+    compartida, televisor ni SSH; para eso está la aplicación.
   </p>
 
   <h2 id="otro-equipo-por-ssh">Otro equipo por SSH</h2>
