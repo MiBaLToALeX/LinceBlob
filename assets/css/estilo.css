@@ -1138,3 +1138,70 @@ pre code { background: none; border: 0; padding: 0; }
 .web [hidden] {
   display: none !important;
 }
+
+/* ------------------------------------------------ la página de enlaces (/l/) */
+
+.enlace {
+  max-width: 34rem;
+  text-align: center;
+}
+
+.enlace img { margin: 0 auto 0.5rem; }
+
+.enlace-botones {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  max-width: 22rem;
+  margin: 1.5rem auto;
+}
+
+/* Todos del mismo tamaño y con la misma letra: el de copiar es un <button> y
+   no la heredaba. */
+.enlace-botones .boton {
+  font: inherit;
+  font-weight: 600;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Los secundarios, con borde y texto en verde: el gris claro de siempre no
+   llegaba al contraste mínimo contra el fondo (3:1 para el borde, 4,5:1 para
+   el texto) y en la pantalla del móvil casi no se veían. */
+.enlace-botones .boton-secundario {
+  border: 2px solid var(--verde);
+  color: var(--verde-oscuro);
+  background: transparent;
+}
+
+.enlace-botones .boton-secundario:hover {
+  background: var(--fondo-2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .enlace-botones .boton-secundario { color: var(--verde-claro); }
+}
+
+.enlace-texto {
+  text-align: start;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--fondo-2);
+  padding: 0.75rem 1rem;
+}
+
+/* En el párrafo y no en la caja: en la caja, los saltos del propio HTML
+   también contaban como texto. */
+.enlace-texto p {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.enlace-nota {
+  font-size: 0.9rem;
+  color: var(--texto-2);
+}
+
+.enlace [hidden] { display: none !important; }
