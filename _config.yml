@@ -23,6 +23,9 @@ telegram: shellord_bot
 
 lang: es
 
+include:
+  - .well-known
+
 # Jekyll
 exclude:
   - Gemfile
