@@ -1,0 +1,36 @@
+---
+layout: default
+title: Abrir en LinceBlob
+permalink: /l/
+description: Abre en LinceBlob lo que te han compartido.
+noindex: true
+# Solo lo propio: ni código en línea ni de fuera, ni formularios, ni
+# peticiones. Lo único que hace la página es leer la dirección y abrir la
+# aplicación.
+csp: "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+---
+
+<section class="seccion">
+  <div class="contenedor enlace">
+    <img src="{{ '/assets/img/icono-128.png' | relative_url }}" alt="" width="72" height="72">
+    <h1>Abrir en LinceBlob</h1>
+    <p id="enlace-que">Abriendo LinceBlob…</p>
+
+    <div id="enlace-texto-caja" class="enlace-texto" hidden>
+      <p id="enlace-texto"></p>
+    </div>
+
+    <div class="enlace-botones">
+      <a class="boton boton-primario" id="enlace-abrir" href="#">Abrir en LinceBlob</a>
+      <a class="boton boton-secundario" id="enlace-web" href="/web/" hidden>Descargar en el navegador</a>
+      <button type="button" class="boton boton-secundario" id="enlace-copiar" hidden>Copiar el ticket</button>
+    </div>
+
+    <p class="enlace-nota">
+      ¿No se abre? Si estás dentro de Telegram, WhatsApp u otra aplicación, ábrelo en el navegador.
+      ¿No tienes LinceBlob? <a id="enlace-descargar" href="/descargar/">Descárgalo</a>.
+    </p>
+  </div>
+</section>
+
+<script type="module" src="{{ '/public/enlace.js' | relative_url }}"></script>
