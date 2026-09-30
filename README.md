@@ -201,6 +201,6 @@ Creado por [Miguel J. Carmona (MIBALTOALEX)](https://me.mibaltoalex.com/).
 [download]: https://lince.mibaltoalex.com/descargar/
 [releases]: https://github.com/MiBaLToALeX/LinceBlob/releases/latest
 
-[badge-version]: https://img.shields.io/badge/version-3.18.0-blue
+[badge-version]: https://img.shields.io/badge/version-3.19.0-blue
 [badge-website]: https://img.shields.io/badge/website-lince.mibaltoalex.com-green
 [badge-platforms]: https://img.shields.io/badge/platforms-Windows%2C%20Linux%2C%20Android%2C%20CLI-green
