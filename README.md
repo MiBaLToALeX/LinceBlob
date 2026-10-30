@@ -21,11 +21,18 @@
 </p>
 
 <p align="center">
-  <a href="https://lince.mibaltoalex.com/descargar/">Descargar</a> ·
-  <a href="https://lince.mibaltoalex.com/documentacion/">Documentación</a> ·
-  <a href="https://lince.mibaltoalex.com/">Web</a> ·
-  <a href="../../releases/latest">Novedades</a>
+  <a href="https://lince.mibaltoalex.com/descargar/" target="_blank">Descargar</a> ·
+  <a href="https://lince.mibaltoalex.com/documentacion/" target="_blank">Documentación</a> ·
+  <a href="https://lince.mibaltoalex.com/" target="_blank">Web</a> ·
+  <a href="../../releases/latest" target="_blank">Novedades</a>
 </p>
+
+<p align="center">
+  <a href="https://get.microsoft.com/installer/download/9PHC1SR6H1J9?referrer=appbadge" target="_blank" >
+    <img src="https://get.microsoft.com/images/es%20dark.svg" width="200"/>
+  </a>
+</p>
+
 
 ---
 
@@ -201,6 +208,6 @@ Creado por [Miguel J. Carmona (MIBALTOALEX)](https://me.mibaltoalex.com/).
 [download]: https://lince.mibaltoalex.com/descargar/
 [releases]: https://github.com/MiBaLToALeX/LinceBlob/releases/latest
 
-[badge-version]: https://img.shields.io/badge/version-3.23.0-blue
+[badge-version]: https://img.shields.io/badge/version-3.24.0-blue
 [badge-website]: https://img.shields.io/badge/website-lince.mibaltoalex.com-green
 [badge-platforms]: https://img.shields.io/badge/platforms-Windows%2C%20Linux%2C%20Android%2C%20CLI-green
