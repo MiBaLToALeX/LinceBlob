@@ -28,7 +28,7 @@
 </p>
 
 <p align="center">
-  <a href="https://get.microsoft.com/installer/download/9PHC1SR6H1J9?referrer=appbadge" target="_blank" >
+  <a href="https://apps.microsoft.com/detail/9phc1sr6h1j9?cid=MIBALTOALEX" target="_blank" >
     <img src="https://get.microsoft.com/images/es%20dark.svg" width="200"/>
   </a>
 </p>
